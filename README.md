@@ -3,165 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Management Dashboard 2.0</title>
+    <title>Identisite - Hero</title>
     <style>
         :root {
-            --primary-color: #2563eb; /* ძირითადი ლურჯი */
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
-            --border-color: #e2e8f0;
+            --primary-blue: #3b82f6;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-white: #ffffff;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+        body, html {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at center, #1a202c 0%, #0a0a0a 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text-white);
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+        /* ფონის დეკორატიული ელემენტები */
+        .bg-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--primary-blue);
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: 0;
+            top: 20%;
+            left: 30%;
+            animation: move 20s infinite alternate;
         }
 
-        header {
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 100px); }
+        }
+
+        /* მთავარი კონტეინერი - "შუშის ბარათი" */
+        .hero-card {
+            position: relative;
+            z-index: 1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
-        h1 { font-size: 1.5rem; font-weight: 600; }
-
-        /* Dashboard Grid */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            font-weight: 800;
         }
 
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s;
+        h1 span {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .card:hover { transform: translateY(-3px); }
-
-        .card-title {
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
         }
 
-        .card-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: var(--text-sub);
-            margin-top: 5px;
-        }
-
-        /* Digital Key Section */
-        .action-section {
-            margin-top: 40px;
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+        /* ღილაკების სტილი */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
             cursor: pointer;
-            font-size: 0.9rem;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            background: #dcfce7;
-            color: #166534;
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* მობილური ადაპტაცია */
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .hero-card { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>სასტუმროს მართვა</h1>
-        <p style="color: var(--text-sub);">ადმინისტრატორი: admin | <a href="#">გასვლა</a></p>
-    </header>
+    <div class="bg-glow"></div>
 
-    <div class="dashboard-grid">
-        <div class="card">
-            <div class="card-title">დღევანდელი ნაკადი</div>
-            <div class="card-value">5 / 3</div>
-            <div class="card-desc">შემოდის 5, გადის 3 სტუმარი</div>
+    <section class="hero-card">
+        <div class="badge">პრემიუმ ვებ სააგენტო</div>
+        
+        <h1>შენი ბიზნესის <br><span>იდენტობა</span> იწყება აქ</h1>
+        
+        <p>წაშალეთ ზღვარი იდეასა და რეალობას შორის. ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს და გამორჩეულს ხდის.</p>
+
+        <div class="btn-container">
+            <a href="#" class="btn btn-primary">დავიწყოთ პროექტი</a>
+            <a href="#" class="btn btn-secondary">ვნახოთ ნამუშევრები</a>
         </div>
-
-        <div class="card">
-            <div class="card-title">ოთახების სტატუსი</div>
-            <div class="card-value">12 თავისუფალი</div>
-            <div class="card-desc">3 საჭიროებს დასუფთავებას</div>
-        </div>
-
-        <div class="card">
-            <div class="card-title">ავტომატური შეტყობინებები</div>
-            <div class="card-value">8 გაგზავნილი</div>
-            <div class="card-desc">დასტური: 5 | შეხსენება: 3</div>
-        </div>
-    </div>
-
-    <div class="action-section">
-        <h3>ციფრული გასაღები და სერვისები</h3>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-            <tr style="border-bottom: 1px solid #eee;">
-                <th style="text-align: left; padding: 10px;">სტუმარი</th>
-                <th style="text-align: left; padding: 10px;">ოთახი</th>
-                <th style="text-align: left; padding: 10px;">სტატუსი</th>
-                <th style="text-align: right; padding: 10px;">მოქმედება</th>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">გიორგი ბერიძე</td>
-                <td style="padding: 10px;">#204</td>
-                <td style="padding: 10px;"><span class="status-badge">აქტიური გასაღები</span></td>
-                <td style="padding: 10px; text-align: right;">
-                    <button class="btn" onclick="sendKey()">გასაღების გაგზავნა</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-
-<script>
-    function sendKey() {
-        alert("ციფრული გასაღები გაიგზავნა სტუმრის სმარტფონზე!");
-    }
-
-    // ლოგიკა ავტომატური შეტყობინებებისთვის (იმიტაცია)
-    function autoNotifications() {
-        console.log("სისტემა ამოწმებს ჯავშნებს...");
-        console.log("1. ჯავშნის დასტური გაეგზავნა ახალ მომხმარებელს.");
-        console.log("2. შეხსენება (1 დღით ადრე) გაეგზავნა ხვალინდელ სტუმრებს.");
-    }
-</script>
+    </section>
 
 </body>
 </html>
