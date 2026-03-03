@@ -3,122 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identisite - Editorial Style</title>
     <style>
-        /* ფონტის იმპორტი (მსგავსი სტილისთვის ვიყენებთ სერიფულ ფონტს) */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400&display=swap');
-
-        :root {
-            --bg-white: #ffffff;
-            --primary-blue: #1a4cd3;
-            --text-dark: #000000;
-            --text-muted: #555555;
-        }
+        /* სათაურისთვის ვიყენებთ ელეგანტურ სერიფს, ქვედა ტექსტისთვის - სუფთა სან-სერიფს */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Montserrat:wght@200;300&display=swap');
 
         body, html {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-white);
-            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            font-family: 'Montserrat', sans-serif;
             height: 100vh;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            justify-content: center;
         }
 
-        .hero-wrapper {
-            text-align: center;
-            max-width: 1000px;
-            padding: 20px;
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+            position: relative;
         }
 
-        /* სათაური: Robakidze Style (Serif, Bold, Elegant) */
-        h1 {
-            font-family: 'Playfair Display', serif; /* სერიფული ფონტი სათაურისთვის */
-            font-size: clamp(45px, 7vw, 85px);
+        /* სათაური - ასიმეტრიული და მასიური */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(60px, 10vw, 120px);
             font-weight: 900;
-            line-height: 1.05;
-            color: var(--text-dark);
-            margin-bottom: 35px;
-            letter-spacing: -1px;
-        }
-
-        h1 span {
-            color: var(--primary-blue);
-        }
-
-        /* ქვედა ტექსტი: უფრო გაშლილი (Letter-spacing) */
-        .hero-description {
-            font-size: clamp(16px, 2vw, 20px);
-            color: var(--text-muted);
-            max-width: 800px;
-            margin: 0 auto 50px;
-            line-height: 1.8;
-            letter-spacing: 1.5px; /* ტექსტის გაშლა */
-            font-weight: 300;
-            text-transform: lowercase; /* სურვილისამებრ, უფრო მოდერნისტული იერისთვის */
-        }
-
-        /* ღილაკები: უფრო თხელი (Thin/Minimalist) */
-        .btn-wrap {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .btn {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300; /* თხელი ფონტი */
-            font-size: 15px;
-            text-decoration: none;
-            letter-spacing: 2px;
+            line-height: 0.9;
+            margin: 0;
             text-transform: uppercase;
-            padding: 12px 35px;
-            transition: all 0.4s ease;
-            border-radius: 2px; /* მკვეთრი, თხელი კუთხეები */
+            letter-spacing: -4px;
         }
 
-        .btn-primary {
-            background-color: var(--text-dark);
-            color: #fff;
-            border: 1px solid var(--text-dark);
+        .hero-title span {
+            display: block;
+            margin-left: 15%; /* აცდენილი ტექსტი */
+            color: #2563eb;
+            font-style: italic; /* "იდენტობა" დახრილია უფრო მეტი აქცენტისთვის */
         }
 
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--text-dark);
+        /* ქვედა ტექსტი - ძალიან გაშლილი და თხელი */
+        .hero-sub {
+            margin-top: 60px;
+            margin-left: 40%; /* განთავსებულია მარჯვენა მხარეს */
+            max-width: 500px;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 2;
+            letter-spacing: 4px; /* სუპერ გაშლილი */
+            text-transform: uppercase;
+            color: #666;
         }
 
-        .btn-secondary {
-            color: var(--text-dark);
-            border-bottom: 1px solid var(--text-dark); /* მხოლოდ ქვედა ხაზი თხელი ეფექტისთვის */
-            padding: 12px 10px;
+        /* ღილაკები - ძალიან თხელი და ელეგანტური */
+        .nav-actions {
+            margin-top: 80px;
+            display: flex;
+            gap: 60px;
+            justify-content: flex-end;
         }
 
-        .btn-secondary:hover {
-            opacity: 0.6;
+        .action-link {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+            transition: 0.4s;
         }
 
-        /* მობილურისთვის */
-        @media (max-width: 600px) {
-            h1 { font-size: 40px; }
-            .hero-description { letter-spacing: 1px; }
-            .btn-wrap { flex-direction: column; gap: 15px; }
+        .action-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px; /* თავიდან მოკლე ხაზი */
+            height: 1px;
+            background: #1a1a1a;
+            transition: 0.4s;
+        }
+
+        .action-link:hover::after {
+            width: 100%; /* hover-ზე ივსება */
+        }
+
+        .action-link.primary {
+            color: #2563eb;
+        }
+        .action-link.primary::after {
+            background: #2563eb;
+        }
+
+        /* მობილურისთვის ადაპტაცია */
+        @media (max-width: 900px) {
+            .hero-title span { margin-left: 0; }
+            .hero-sub { margin-left: 0; margin-top: 40px; letter-spacing: 2px; }
+            .nav-actions { justify-content: flex-start; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-wrapper">
-        <h1>შენი ბიზნესის <br> <span>იდენტობა</span> იწყება აქ</h1>
-        
-        <p class="hero-description">
+    <div class="container">
+        <h1 class="hero-title">
+            შენი ბიზნესის <br>
+            <span>იდენტობა</span> 
+            იწყება აქ
+        </h1>
+
+        <p class="hero-sub">
             წაშალეთ ზღვარი იდეასა და რეალობას შორის. ჩვენ ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს, გამორჩეულს და შედეგზე ორიენტირებულს ხდის.
         </p>
 
-        <div class="btn-wrap">
-            <a href="#" class="btn btn-primary">დავიწყოთ პროექტი</a>
-            <a href="#" class="btn btn-secondary">ვნახოთ ნამუშევრები</a>
+        <div class="nav-actions">
+            <a href="#" class="action-link primary">დავიწყოთ პროექტი</a>
+            <a href="#" class="action-link">ვნახოთ ნამუშევრები</a>
         </div>
     </div>
 
