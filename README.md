@@ -4,217 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* ფონტის იმპორტი (მსგავსი სტილისთვის ვიყენებთ სერიფულ ფონტს) */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400&display=swap');
+
         :root {
-            --primary-gradient: linear-gradient(135px, #2563eb 0%, #1e40af 100%);
-            --glass: rgba(255, 255, 255, 0.8);
-            --text-dark: #1d1d1f;
-            --text-muted: #424245;
+            --bg-white: #ffffff;
+            --primary-blue: #1a4cd3;
+            --text-dark: #000000;
+            --text-muted: #555555;
         }
 
-        body {
+        body, html {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #fbfbfd;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* --- ანიმირებული HERO სექცია --- */
-        .hero-container {
-            position: relative;
-            min-height: 100vh;
+            padding: 0;
+            background-color: var(--bg-white);
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #ffffff;
-            overflow: hidden;
         }
 
-        /* მოძრავი ფონი (Abstract Shapes) */
-        .bg-blob {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: rgba(37, 99, 235, 0.1);
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: 0;
-            animation: move 20s infinite alternate;
-        }
-
-        @keyframes move {
-            from { transform: translate(-20%, -20%); }
-            to { transform: translate(20%, 20%); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        .hero-wrapper {
             text-align: center;
-            max-width: 900px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            max-width: 1000px;
+            padding: 20px;
         }
 
-        .hero-badge {
-            background: #f2f2f7;
-            color: #2563eb;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 24px;
+        /* სათაური: Robakidze Style (Serif, Bold, Elegant) */
+        h1 {
+            font-family: 'Playfair Display', serif; /* სერიფული ფონტი სათაურისთვის */
+            font-size: clamp(45px, 7vw, 85px);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 35px;
+            letter-spacing: -1px;
         }
 
-        .hero-content h1 {
-            font-size: clamp(40px, 8vw, 72px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            letter-spacing: -0.03em;
+        h1 span {
+            color: var(--primary-blue);
         }
 
-        .hero-content h1 span {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-content p {
-            font-size: clamp(18px, 2vw, 22px);
+        /* ქვედა ტექსტი: უფრო გაშლილი (Letter-spacing) */
+        .hero-description {
+            font-size: clamp(16px, 2vw, 20px);
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 40px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+            letter-spacing: 1.5px; /* ტექსტის გაშლა */
+            font-weight: 300;
+            text-transform: lowercase; /* სურვილისამებრ, უფრო მოდერნისტული იერისთვის */
         }
 
-        /* --- ღილაკები --- */
-        .btn-box {
+        /* ღილაკები: უფრო თხელი (Thin/Minimalist) */
+        .btn-wrap {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300; /* თხელი ფონტი */
+            font-size: 15px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px 35px;
+            transition: all 0.4s ease;
+            border-radius: 2px; /* მკვეთრი, თხელი კუთხეები */
         }
 
         .btn-primary {
-            background: #2563eb;
-            color: white;
-            padding: 20px 40px;
-            border-radius: 18px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            background-color: var(--text-dark);
+            color: #fff;
+            border: 1px solid var(--text-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--text-dark);
         }
 
         .btn-secondary {
-            background: white;
             color: var(--text-dark);
-            padding: 20px 40px;
-            border-radius: 18px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 1px solid #d2d2d7;
-            transition: 0.3s;
+            border-bottom: 1px solid var(--text-dark); /* მხოლოდ ქვედა ხაზი თხელი ეფექტისთვის */
+            padding: 12px 10px;
         }
 
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); }
-
-        /* --- TEGETA STYLE ACCORDION (ჩვენი ისტორია) --- */
-        .acc-section {
-            max-width: 1000px;
-            margin: 100px auto;
-            padding: 0 20px;
+        .btn-secondary:hover {
+            opacity: 0.6;
         }
 
-        .acc-item {
-            border-bottom: 1px solid #e5e5e5;
+        /* მობილურისთვის */
+        @media (max-width: 600px) {
+            h1 { font-size: 40px; }
+            .hero-description { letter-spacing: 1px; }
+            .btn-wrap { flex-direction: column; gap: 15px; }
         }
-
-        .acc-header {
-            width: 100%;
-            padding: 30px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            font-weight: 700;
-            text-align: left;
-        }
-
-        .acc-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: 0.5s ease;
-        }
-
-        .acc-item.active .acc-body {
-            max-height: 500px;
-            padding-bottom: 40px;
-        }
-
-        .acc-text {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="hero-container">
-        <div class="bg-blob"></div>
-        <div class="hero-content">
-            <div class="hero-badge">პრემიუმ ვებ სააგენტო</div>
-            <h1>შენი ბიზნესის <br> <span>იდენტობა</span> იწყება აქ</h1>
-            <p>წაშალეთ ზღვარი იდეასა და რეალობას შორის. ჩვენ ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს, გამორჩეულს და შედეგზე ორიენტირებულს ხდის.</p>
-            <div class="btn-box">
-                <a href="#" class="btn-primary">დავიწყოთ პროექტი</a>
-                <a href="#" class="btn-secondary">ვნახოთ ნამუშევრები</a>
-            </div>
+    <div class="hero-wrapper">
+        <h1>შენი ბიზნესის <br> <span>იდენტობა</span> იწყება აქ</h1>
+        
+        <p class="hero-description">
+            წაშალეთ ზღვარი იდეასა და რეალობას შორის. ჩვენ ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს, გამორჩეულს და შედეგზე ორიენტირებულს ხდის.
+        </p>
+
+        <div class="btn-wrap">
+            <a href="#" class="btn btn-primary">დავიწყოთ პროექტი</a>
+            <a href="#" class="btn btn-secondary">ვნახოთ ნამუშევრები</a>
         </div>
     </div>
-
-    <div class="acc-section">
-        <div class="acc-item active">
-            <button class="acc-header" onclick="toggleAcc(this)">ჩვენი ისტორია <span>+</span></button>
-            <div class="acc-body">
-                <div class="acc-text">
-                    Identisite შეიქმნა მათთვის, ვისაც ესმის, რომ ციფრულ ეპოქაში ვებგვერდი ბიზნესის მთავარი ინტელექტუალური აქტივია. ჩვენ გავიარეთ გზა ტექნიკური შესრულებიდან შემოქმედებით სტრატეგიამდე.
-                </div>
-            </div>
-        </div>
-        <div class="acc-item">
-            <button class="acc-header" onclick="toggleAcc(this)">მისია <span>+</span></button>
-            <div class="acc-body">
-                <div class="acc-text">
-                    ბიზნესების გაძლიერება ინოვაციური ციფრული გადაწყვეტილებებით.
-                </div>
-            </div>
-        </div>
-        <div class="acc-item">
-            <button class="acc-header" onclick="toggleAcc(this)">ხედვა <span>+</span></button>
-            <div class="acc-body">
-                <div class="acc-text">
-                    გახდეთ რეგიონის წამყვანი ციფრული პარტნიორი.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function toggleAcc(btn) {
-            const item = btn.parentElement;
-            item.classList.toggle('active');
-        }
-    </script>
 
 </body>
 </html>
