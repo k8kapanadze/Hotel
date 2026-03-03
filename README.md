@@ -1,139 +1,169 @@
-<!DOCTYPE html>
-<html lang="ka">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        :root {
-            --bg-white: #fcfcfc;
-            --card-bg: #ffffff;
-            --primary-blue: #2563eb;
-            --text-black: #1a1a1a;
-            --text-gray: #666666;
-            --border-radius: 32px; /* მომრგვალებული კუთხეები, როგორც ფოტოზეა */
-        }
+<style>
+    :root {
+        --bg-color: #f8f9fa;
+        --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        --accent-blue: #2563eb;
+        --text-dark: #1d1d1f;
+        --text-muted: #86868b;
+    }
 
-        body {
-            background-color: var(--bg-white);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
-            margin: 0;
-        }
+    body {
+        background-color: var(--bg-color);
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+        color: var(--text-dark);
+        margin: 0;
+    }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            max-width: 1100px;
-            width: 100%;
-        }
+    /* --- HERO SECTION --- */
+    .hero-section {
+        padding: 120px 20px;
+        text-align: center;
+        background: white;
+        margin-bottom: 40px;
+    }
 
-        .service-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* ძალიან ნაზი ჩრდილი */
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0, 0, 0, 0.02);
-            position: relative;
-        }
+    .badge {
+        background: #f2f2f7;
+        color: var(--accent-blue);
+        padding: 8px 20px;
+        border-radius: 40px;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 24px;
+    }
 
-        /* Hover ეფექტი - ბარათი ოდნავ "იწევა" და ჩრდილი მუქდება */
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-        }
+    .hero-section h1 {
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
 
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 30px;
-        }
+    .hero-section h1 span {
+        color: var(--accent-blue);
+    }
 
-        .icon-box img {
-            width: 100%;
-            height: auto;
-            filter: grayscale(1); /* აიკონები თავიდან ნაცრისფერია */
-            transition: filter 0.3s ease;
-        }
+    .hero-section p {
+        font-size: 19px;
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.5;
+    }
 
-        .service-card:hover .icon-box img {
-            filter: grayscale(0); /* Hover-ზე აიკონი ფერადდება */
-        }
+    /* --- BUTTONS --- */
+    .btn-group {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+    }
 
-        h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-black);
-            margin: 0 0 15px 0;
-        }
+    .btn-main {
+        background: var(--accent-blue);
+        color: white;
+        padding: 16px 32px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.2s;
+    }
 
-        p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
+    .btn-outline {
+        background: white;
+        color: var(--text-dark);
+        border: 1px solid #d2d2d7;
+        padding: 16px 32px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+    }
 
-        .learn-more {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-black);
-            font-weight: 700;
-            font-size: 16px;
-            gap: 10px;
-            transition: color 0.3s ease;
-        }
+    .btn-main:hover { transform: scale(1.02); }
 
-        .learn-more:hover {
-            color: var(--primary-blue);
-        }
+    /* --- SERVICES GRID (ზუსტად შენს ფოტოსავით) --- */
+    .services-container {
+        max-width: 1100px;
+        margin: 60px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+    }
 
-        .learn-more svg {
-            width: 20px;
-            transition: transform 0.3s ease;
-        }
+    .service-card {
+        background: white;
+        padding: 40px;
+        border-radius: 32px; /* ზუსტად ისეთივე მომრგვალება */
+        box-shadow: var(--card-shadow);
+        border: 1px solid rgba(0,0,0,0.02);
+        transition: all 0.3s ease;
+        text-align: left;
+    }
 
-        .learn-more:hover svg {
-            transform: translateX(5px);
-        }
-    </style>
-</head>
-<body>
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
 
-<div class="services-grid">
-    
+    .service-card img {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .service-card p {
+        color: var(--text-muted);
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    .go-more {
+        font-weight: 600;
+        color: var(--text-dark);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .go-more:after {
+        content: "→";
+        transition: transform 0.2s;
+    }
+
+    .go-more:hover:after { transform: translateX(5px); }
+</style>
+
+<section class="hero-section">
+    <div class="badge">პრემიუმ ვებ სააგენტო</div>
+    <h1>შენი ბიზნესის <br> <span>იდენტობა</span> იწყება აქ</h1>
+    <p>იდენტობა რომელიც საიტად იქცევა — ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს გამოარჩევს და შედეგს მოგიტანთ.</p>
+    <div class="btn-group">
+        <a href="#contact" class="btn-main">დავიწყოთ პროექტი</a>
+        <a href="#portfolio" class="btn-outline">ვნახოთ ნამუშევრები</a>
+    </div>
+</section>
+
+<div class="services-container">
     <div class="service-card">
-        <div class="icon-box">
-            <img src="https://cdn-icons-png.flaticon.com/512/5202/5202951.png" alt="UX UI">
-        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/5202/5202951.png" alt="UX">
         <h3>UX/UI დიზაინი</h3>
-        <p>ჩვენ ვქმნით ინტერფეისებს, სადაც ესთეტიკა და ფუნქციონალი ჰარმონიაშია. თქვენი ბრენდის იდენტობა გადაგვყავს ინტუიციურ ციფრულ გამოცდილებაში.</p>
-        <a href="#" class="learn-more">
-            გაიგე მეტი 
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
+        <p>თუ თქვენი ვებ გვერდის დიზაინი არ პასუხობს თანამედროვე სტანდარტებს, მაშინ სწორ ადგილას მოხვედით!</p>
+        <a href="#" class="go-more">გაიგე მეტი</a>
     </div>
 
     <div class="service-card">
-        <div class="icon-box">
-            <img src="https://cdn-icons-png.flaticon.com/512/2010/2010990.png" alt="Dev">
-        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/2010/2010990.png" alt="Web">
         <h3>ვებ დეველოპმენტი</h3>
-        <p>მაღალტექნოლოგიური და სუფთა კოდი, რომელიც თქვენს საიტს სისწრაფესა და მდგრადობას სძენს. ჩვენ ვაშენებთ ციფრულ არქიტექტურას, რომელიც მუშაობს.</p>
-        <a href="#" class="learn-more">
-            გაიგე მეტი 
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
+        <p>მაღალტექნოლოგიური და სუფთა კოდი, რომელიც თქვენს საიტს სისწრაფესა და მდგრადობას სძენს.</p>
+        <a href="#" class="go-more">გაიგე მეტი</a>
     </div>
-
 </div>
-
-</body>
-</html>
