@@ -1,158 +1,220 @@
-<style>
-    .accordion-section {
-        max-width: 1100px;
-        margin: 60px auto;
-        font-family: -apple-system, sans-serif;
-    }
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135px, #2563eb 0%, #1e40af 100%);
+            --glass: rgba(255, 255, 255, 0.8);
+            --text-dark: #1d1d1f;
+            --text-muted: #424245;
+        }
 
-    .accordion-item {
-        border-bottom: 1px solid #e5e5e5;
-        overflow: hidden;
-    }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #fbfbfd;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
 
-    /* სათაურის სტილი */
-    .accordion-header {
-        width: 100%;
-        padding: 24px;
-        background: #f9f9fb;
-        border: none;
-        outline: none;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
+        /* --- ანიმირებული HERO სექცია --- */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            overflow: hidden;
+        }
 
-    .accordion-header:hover {
-        background: #f0f0f5;
-    }
+        /* მოძრავი ფონი (Abstract Shapes) */
+        .bg-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(37, 99, 235, 0.1);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: 0;
+            animation: move 20s infinite alternate;
+        }
 
-    .accordion-number {
-        font-size: 14px;
-        color: #86868b;
-        margin-right: 20px;
-        font-weight: 600;
-    }
+        @keyframes move {
+            from { transform: translate(-20%, -20%); }
+            to { transform: translate(20%, 20%); }
+        }
 
-    .accordion-title {
-        font-size: 20px;
-        font-weight: 700;
-        color: #1d1d1f;
-        text-transform: uppercase;
-    }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
 
-    /* შინაარსის სტილი */
-    .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-        background: white;
-        display: flex;
-        flex-wrap: wrap;
-    }
+        .hero-badge {
+            background: #f2f2f7;
+            color: #2563eb;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
 
-    /* როცა აკორდეონი ღიაა */
-    .accordion-item.active .accordion-content {
-        max-height: 1000px;
-        transition: max-height 1s ease-in-out;
-    }
+        .hero-content h1 {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.03em;
+        }
 
-    .accordion-item.active .accordion-header {
-        background: white;
-    }
+        .hero-content h1 span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .content-inner {
-        padding: 40px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: center;
-    }
+        .hero-content p {
+            font-size: clamp(18px, 2vw, 22px);
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
 
-    .content-text h3 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: #2563eb;
-    }
+        /* --- ღილაკები --- */
+        .btn-box {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-    .content-text p {
-        font-size: 17px;
-        color: #424245;
-        line-height: 1.6;
-    }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 18px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
 
-    .content-image {
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+        .btn-secondary {
+            background: white;
+            color: var(--text-dark);
+            padding: 20px 40px;
+            border-radius: 18px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid #d2d2d7;
+            transition: 0.3s;
+        }
 
-    @media (max-width: 768px) {
-        .content-inner { grid-template-columns: 1fr; }
-        .accordion-title { font-size: 16px; }
-    }
-</style>
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); }
 
-<div class="accordion-section">
-    <div class="accordion-item active">
-        <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span class="accordion-number">1</span>
-            <span class="accordion-title">ჩვენი ისტორია</span>
-        </button>
-        <div class="accordion-content">
-            <div class="content-inner">
-                <div class="content-text">
-                    <h3>Identisite-ის გზა</h3>
-                    <p>Identisite შეიქმნა მათთვის, ვისაც ესმის, რომ ციფრულ ეპოქაში ვებგვერდი ბიზნესის მთავარი ინტელექტუალური აქტივია. ჩვენ გავიარეთ გზა ტექნიკური შესრულებიდან შემოქმედებით სტრატეგიამდე.</p>
-                </div>
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" class="content-image" alt="History">
+        /* --- TEGETA STYLE ACCORDION (ჩვენი ისტორია) --- */
+        .acc-section {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .acc-item {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .acc-header {
+            width: 100%;
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .acc-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.5s ease;
+        }
+
+        .acc-item.active .acc-body {
+            max-height: 500px;
+            padding-bottom: 40px;
+        }
+
+        .acc-text {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="hero-container">
+        <div class="bg-blob"></div>
+        <div class="hero-content">
+            <div class="hero-badge">პრემიუმ ვებ სააგენტო</div>
+            <h1>შენი ბიზნესის <br> <span>იდენტობა</span> იწყება აქ</h1>
+            <p>წაშალეთ ზღვარი იდეასა და რეალობას შორის. ჩვენ ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს, გამორჩეულს და შედეგზე ორიენტირებულს ხდის.</p>
+            <div class="btn-box">
+                <a href="#" class="btn-primary">დავიწყოთ პროექტი</a>
+                <a href="#" class="btn-secondary">ვნახოთ ნამუშევრები</a>
             </div>
         </div>
     </div>
 
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span class="accordion-number">2</span>
-            <span class="accordion-title">მისია</span>
-        </button>
-        <div class="accordion-content">
-            <div class="content-inner">
-                <div class="content-text">
-                    <h3>ჩვენი მისია</h3>
-                    <p>ბიზნესების გაძლიერება ინოვაციური ციფრული გადაწყვეტილებებით. ჩვენი მიზანია, თითოეული პროექტი იყოს უნიკალური და შედეგზე ორიენტირებული.</p>
+    <div class="acc-section">
+        <div class="acc-item active">
+            <button class="acc-header" onclick="toggleAcc(this)">ჩვენი ისტორია <span>+</span></button>
+            <div class="acc-body">
+                <div class="acc-text">
+                    Identisite შეიქმნა მათთვის, ვისაც ესმის, რომ ციფრულ ეპოქაში ვებგვერდი ბიზნესის მთავარი ინტელექტუალური აქტივია. ჩვენ გავიარეთ გზა ტექნიკური შესრულებიდან შემოქმედებით სტრატეგიამდე.
                 </div>
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" class="content-image" alt="Mission">
+            </div>
+        </div>
+        <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">მისია <span>+</span></button>
+            <div class="acc-body">
+                <div class="acc-text">
+                    ბიზნესების გაძლიერება ინოვაციური ციფრული გადაწყვეტილებებით.
+                </div>
+            </div>
+        </div>
+        <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">ხედვა <span>+</span></button>
+            <div class="acc-body">
+                <div class="acc-text">
+                    გახდეთ რეგიონის წამყვანი ციფრული პარტნიორი.
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="accordion-item">
-        <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span class="accordion-number">3</span>
-            <span class="accordion-title">ხედვა</span>
-        </button>
-        <div class="accordion-content">
-            <div class="content-inner">
-                <div class="content-text">
-                    <h3>ციფრული მომავალი</h3>
-                    <p>გახდეთ რეგიონის წამყვანი ციფრული პარტნიორი, რომელიც ბიზნესებს ეხმარება ციფრული ტრანსფორმაციის ყველა ეტაპზე.</p>
-                </div>
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" class="content-image" alt="Vision">
-            </div>
-        </div>
-    </div>
-</div>
+    <script>
+        function toggleAcc(btn) {
+            const item = btn.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
 
-<script>
-    function toggleAccordion(element) {
-        const item = element.parentElement;
-        const allItems = document.querySelectorAll('.accordion-item');
-        
-        allItems.forEach(i => {
-            if (i !== item) i.classList.remove('active');
-        });
-        
-        item.classList.toggle('active');
-    }
-</script>
+</body>
+</html>
