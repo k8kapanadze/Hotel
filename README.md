@@ -3,158 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identisite - Hero</title>
     <style>
         :root {
-            --primary-blue: #3b82f6;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-white: #ffffff;
+            --bg-white: #fcfcfc;
+            --card-bg: #ffffff;
+            --primary-blue: #2563eb;
+            --text-black: #1a1a1a;
+            --text-gray: #666666;
+            --border-radius: 32px; /* მომრგვალებული კუთხეები, როგორც ფოტოზეა */
         }
 
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at center, #1a202c 0%, #0a0a0a 100%);
-            height: 100vh;
+        body {
+            background-color: var(--bg-white);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             display: flex;
-            align-items: center;
             justify-content: center;
-            overflow: hidden;
-            color: var(--text-white);
+            padding: 50px 20px;
+            margin: 0;
         }
 
-        /* ფონის დეკორატიული ელემენტები */
-        .bg-glow {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: var(--primary-blue);
-            filter: blur(150px);
-            opacity: 0.15;
-            z-index: 0;
-            top: 20%;
-            left: 30%;
-            animation: move 20s infinite alternate;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            width: 100%;
         }
 
-        @keyframes move {
-            from { transform: translate(0, 0); }
-            to { transform: translate(100px, 100px); }
-        }
-
-        /* მთავარი კონტეინერი - "შუშის ბარათი" */
-        .hero-card {
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* ძალიან ნაზი ჩრდილი */
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.02);
             position: relative;
-            z-index: 1;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 40px;
-            padding: 60px 40px;
-            text-align: center;
-            max-width: 600px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            margin: 20px;
         }
 
-        .badge {
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
+        /* Hover ეფექტი - ბარათი ოდნავ "იწევა" და ჩრდილი მუქდება */
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
             margin-bottom: 30px;
-            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
-        h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 25px;
-            font-weight: 800;
+        .icon-box img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(1); /* აიკონები თავიდან ნაცრისფერია */
+            transition: filter 0.3s ease;
         }
 
-        h1 span {
-            background: linear-gradient(90deg, #60a5fa, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .service-card:hover .icon-box img {
+            filter: grayscale(0); /* Hover-ზე აიკონი ფერადდება */
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-black);
+            margin: 0 0 15px 0;
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 15px;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 40px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            flex-grow: 1;
         }
 
-        /* ღილაკების სტილი */
-        .btn-container {
+        .learn-more {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 600;
+            align-items: center;
             text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            color: var(--text-black);
+            font-weight: 700;
+            font-size: 16px;
+            gap: 10px;
+            transition: color 0.3s ease;
         }
 
-        .btn-primary {
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+        .learn-more:hover {
+            color: var(--primary-blue);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.5);
+        .learn-more svg {
+            width: 20px;
+            transition: transform 0.3s ease;
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid var(--glass-border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* მობილური ადაპტაცია */
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            .hero-card { padding: 40px 20px; }
+        .learn-more:hover svg {
+            transform: translateX(5px);
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
-
-    <section class="hero-card">
-        <div class="badge">პრემიუმ ვებ სააგენტო</div>
-        
-        <h1>შენი ბიზნესის <br><span>იდენტობა</span> იწყება აქ</h1>
-        
-        <p>წაშალეთ ზღვარი იდეასა და რეალობას შორის. ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს და გამორჩეულს ხდის.</p>
-
-        <div class="btn-container">
-            <a href="#" class="btn btn-primary">დავიწყოთ პროექტი</a>
-            <a href="#" class="btn btn-secondary">ვნახოთ ნამუშევრები</a>
+<div class="services-grid">
+    
+    <div class="service-card">
+        <div class="icon-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/5202/5202951.png" alt="UX UI">
         </div>
-    </section>
+        <h3>UX/UI დიზაინი</h3>
+        <p>ჩვენ ვქმნით ინტერფეისებს, სადაც ესთეტიკა და ფუნქციონალი ჰარმონიაშია. თქვენი ბრენდის იდენტობა გადაგვყავს ინტუიციურ ციფრულ გამოცდილებაში.</p>
+        <a href="#" class="learn-more">
+            გაიგე მეტი 
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+    </div>
+
+    <div class="service-card">
+        <div class="icon-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/2010/2010990.png" alt="Dev">
+        </div>
+        <h3>ვებ დეველოპმენტი</h3>
+        <p>მაღალტექნოლოგიური და სუფთა კოდი, რომელიც თქვენს საიტს სისწრაფესა და მდგრადობას სძენს. ჩვენ ვაშენებთ ციფრულ არქიტექტურას, რომელიც მუშაობს.</p>
+        <a href="#" class="learn-more">
+            გაიგე მეტი 
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+    </div>
+
+</div>
 
 </body>
 </html>
