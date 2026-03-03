@@ -1,169 +1,150 @@
 <style>
+    /* 1. ძირითადი პარამეტრები და ფონტები */
     :root {
-        --bg-color: #f8f9fa;
-        --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-        --accent-blue: #2563eb;
-        --text-dark: #1d1d1f;
+        --primary: #2563eb;
+        --text-main: #1d1d1f;
         --text-muted: #86868b;
+        --bg-light: #fbfbfd;
+        --white: #ffffff;
+        --card-radius: 32px;
+        --shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
     }
 
     body {
-        background-color: var(--bg-color);
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-        color: var(--text-dark);
+        background-color: var(--bg-light);
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+        color: var(--text-main);
         margin: 0;
-    }
-
-    /* --- HERO SECTION --- */
-    .hero-section {
-        padding: 120px 20px;
-        text-align: center;
-        background: white;
-        margin-bottom: 40px;
-    }
-
-    .badge {
-        background: #f2f2f7;
-        color: var(--accent-blue);
-        padding: 8px 20px;
-        border-radius: 40px;
-        font-size: 14px;
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: 24px;
-    }
-
-    .hero-section h1 {
-        font-size: 48px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-        margin-bottom: 20px;
-    }
-
-    .hero-section h1 span {
-        color: var(--accent-blue);
-    }
-
-    .hero-section p {
-        font-size: 19px;
-        color: var(--text-muted);
-        max-width: 600px;
-        margin: 0 auto 40px;
         line-height: 1.5;
     }
 
-    /* --- BUTTONS --- */
-    .btn-group {
-        display: flex;
-        gap: 16px;
-        justify-content: center;
+    /* 2. საერთო სექციების სტილი */
+    section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    .btn-main {
-        background: var(--accent-blue);
-        color: white;
-        padding: 16px 32px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: transform 0.2s;
+    .section-title {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 50px;
     }
 
-    .btn-outline {
+    /* 3. HERO სექცია (image 1 & 4) */
+    .hero {
+        text-align: center;
+        padding-top: 120px;
         background: white;
-        color: var(--text-dark);
-        border: 1px solid #d2d2d7;
-        padding: 16px 32px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 600;
     }
 
-    .btn-main:hover { transform: scale(1.02); }
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+    }
 
-    /* --- SERVICES GRID (ზუსტად შენს ფოტოსავით) --- */
-    .services-container {
-        max-width: 1100px;
-        margin: 60px auto;
-        padding: 0 20px;
+    .hero h1 span { color: var(--primary); }
+
+    .hero p {
+        font-size: 20px;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto 40px;
+    }
+
+    /* 4. ბარათების სისტემა (Card Grid - image 2, 8, 9) */
+    .card-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 24px;
     }
 
-    .service-card {
-        background: white;
+    .card {
+        background: var(--white);
         padding: 40px;
-        border-radius: 32px; /* ზუსტად ისეთივე მომრგვალება */
-        box-shadow: var(--card-shadow);
-        border: 1px solid rgba(0,0,0,0.02);
-        transition: all 0.3s ease;
+        border-radius: var(--card-radius);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(0,0,0,0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         text-align: left;
     }
 
-    .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .service-card img {
-        width: 48px;
-        height: 48px;
+    .card-icon {
+        width: 56px;
+        height: 56px;
+        background: #f0f4ff;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 24px;
+        color: var(--primary);
+        font-size: 24px;
     }
 
-    .service-card h3 {
+    .card h3 {
         font-size: 24px;
         margin-bottom: 16px;
     }
 
-    .service-card p {
+    .card p {
         color: var(--text-muted);
         font-size: 16px;
-        line-height: 1.6;
         margin-bottom: 24px;
     }
 
-    .go-more {
+    /* 5. ღილაკების სტილი (image 1) */
+    .btn {
+        display: inline-block;
+        padding: 16px 32px;
+        border-radius: 14px;
         font-weight: 600;
-        color: var(--text-dark);
         text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        transition: 0.2s;
     }
 
-    .go-more:after {
-        content: "→";
-        transition: transform 0.2s;
-    }
+    .btn-blue { background: var(--primary); color: white; }
+    .btn-white { background: white; color: var(--text-main); border: 1px solid #d2d2d7; }
 
-    .go-more:hover:after { transform: translateX(5px); }
+    /* 6. მობილური ვერსია */
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 36px; }
+        .card-grid { grid-template-columns: 1fr; }
+        .card { padding: 30px; }
+    }
 </style>
 
-<section class="hero-section">
-    <div class="badge">პრემიუმ ვებ სააგენტო</div>
-    <h1>შენი ბიზნესის <br> <span>იდენტობა</span> იწყება აქ</h1>
-    <p>იდენტობა რომელიც საიტად იქცევა — ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს გამოარჩევს და შედეგს მოგიტანთ.</p>
-    <div class="btn-group">
-        <a href="#contact" class="btn-main">დავიწყოთ პროექტი</a>
-        <a href="#portfolio" class="btn-outline">ვნახოთ ნამუშევრები</a>
+<section class="hero">
+    <h1>შენი ბიზნესის <span>იდენტობა</span> იწყება აქ</h1>
+    <p>ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს და გამორჩეულს ხდის.</p>
+    <div style="display: flex; gap: 15px; justify-content: center;">
+        <a href="#" class="btn btn-blue">დავიწყოთ პროექტი</a>
+        <a href="#" class="btn btn-white">ნამუშევრები</a>
     </div>
 </section>
 
-<div class="services-container">
-    <div class="service-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/5202/5202951.png" alt="UX">
-        <h3>UX/UI დიზაინი</h3>
-        <p>თუ თქვენი ვებ გვერდის დიზაინი არ პასუხობს თანამედროვე სტანდარტებს, მაშინ სწორ ადგილას მოხვედით!</p>
-        <a href="#" class="go-more">გაიგე მეტი</a>
+<section id="services">
+    <h2 class="section-title">რას გთავაზობთ</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">🎨</div>
+            <h3>UI/UX დიზაინი</h3>
+            <p>მომხმარებელზე ორიენტირებული ინტერფეისების დიზაინი საუკეთესო გამოცდილებისთვის.</p>
+            <a href="#" style="color: var(--text-main); font-weight: 600; text-decoration: none;">გაიგე მეტი →</a>
+        </div>
+        
+        <div class="card">
+            <div class="card-icon">🌐</div>
+            <h3>კორპორატიული საიტები</h3>
+            <p>პროფესიონალური ვებ-გვერდები, რომლებიც თქვენს ბრენდს სათანადოდ წარმოაჩენს.</p>
+            <a href="#" style="color: var(--text-main); font-weight: 600; text-decoration: none;">გაიგე მეტი →</a>
+        </div>
     </div>
-
-    <div class="service-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2010/2010990.png" alt="Web">
-        <h3>ვებ დეველოპმენტი</h3>
-        <p>მაღალტექნოლოგიური და სუფთა კოდი, რომელიც თქვენს საიტს სისწრაფესა და მდგრადობას სძენს.</p>
-        <a href="#" class="go-more">გაიგე მეტი</a>
-    </div>
-</div>
+</section>
