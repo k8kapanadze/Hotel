@@ -15,7 +15,7 @@
     * { font-family: 'Noto Sans Georgian', 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
     .gradient-text {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -30,7 +30,7 @@
     }
     .hover-lift:hover {
       transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
     }
     .nav-link {
       position: relative;
@@ -42,7 +42,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #6366f1, #a855f7);
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
       transition: width 0.3s ease;
     }
     .nav-link:hover::after {
@@ -74,48 +74,48 @@
       opacity: 0.5;
     }
     .process-line {
-      background: linear-gradient(180deg, #6366f1 0%, #a855f7 100%);
+      background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
     }
     input:focus, textarea:focus, select:focus {
       outline: none;
       ring: 2px;
-      ring-color: #6366f1;
+      ring-color: #3b82f6;
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
  </head>
- <body class="h-full bg-gradient-to-br from-slate-50 via-white to-indigo-50 overflow-auto">
+ <body class="h-full bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-auto">
   <div class="w-full min-h-full"><!-- Navigation -->
    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-xl border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div class="flex justify-between items-center h-20"><a href="#home" class="flex items-center space-x-2">
-       <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center"><span class="text-white font-bold text-xl">I</span>
+       <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center"><span class="text-white font-bold text-xl">I</span>
        </div><span class="text-2xl font-bold text-slate-800">IDENTISITE</span> </a> <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-8"><a href="#home" class="nav-link text-slate-600 hover:text-indigo-600 transition-colors font-medium" data-lang="ka">მთავარი</a> <a href="#about" class="nav-link text-slate-600 hover:text-indigo-600 transition-colors font-medium" data-lang="ka">ჩვენ შესახებ</a> <a href="#services" class="nav-link text-slate-600 hover:text-indigo-600 transition-colors font-medium" data-lang="ka">სერვისები</a> <a href="#portfolio" class="nav-link text-slate-600 hover:text-indigo-600 transition-colors font-medium" data-lang="ka">პორტფოლიო</a> <a href="#process" class="nav-link text-slate-600 hover:text-indigo-600 transition-colors font-medium" data-lang="ka">პროცესი</a> <a href="#blog" class="nav-link text-slate-600 hover:text-indigo-600 transition-colors font-medium" data-lang="ka">ბლოგი</a> <a href="#contact" class="nav-link text-slate-600 hover:text-indigo-600 transition-colors font-medium" data-lang="ka">კონტაქტი</a>
+      <div class="hidden lg:flex items-center space-x-8"><a href="#home" class="nav-link text-slate-600 hover:text-blue-600 transition-colors font-medium" data-lang="ka">მთავარი</a> <a href="#about" class="nav-link text-slate-600 hover:text-blue-600 transition-colors font-medium" data-lang="ka">ჩვენ შესახებ</a> <a href="#services" class="nav-link text-slate-600 hover:text-blue-600 transition-colors font-medium" data-lang="ka">სერვისები</a> <a href="#portfolio" class="nav-link text-slate-600 hover:text-blue-600 transition-colors font-medium" data-lang="ka">პორტფოლიო</a> <a href="#process" class="nav-link text-slate-600 hover:text-blue-600 transition-colors font-medium" data-lang="ka">პროცესი</a> <a href="#blog" class="nav-link text-slate-600 hover:text-blue-600 transition-colors font-medium" data-lang="ka">ბლოგი</a> <a href="#contact" class="nav-link text-slate-600 hover:text-blue-600 transition-colors font-medium" data-lang="ka">კონტაქტი</a>
       </div>
-      <div class="flex items-center space-x-4"><!-- Language Switcher --> <button id="langSwitch" class="px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-indigo-600 border border-slate-200 rounded-lg hover:border-indigo-300 transition-all"> EN </button> <a href="#contact" class="hidden sm:inline-flex px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:scale-105"> <span data-lang="ka">დავიწყოთ</span> </a> <!-- Mobile Menu Button --> <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-600 hover:text-indigo-600">
+      <div class="flex items-center space-x-4"><!-- Language Switcher --> <button id="langSwitch" class="px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-blue-600 border border-slate-200 rounded-lg hover:border-blue-300 transition-all"> EN </button> <a href="#contact" class="hidden sm:inline-flex px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105"> <span data-lang="ka">დავიწყოთ</span> </a> <!-- Mobile Menu Button --> <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-600 hover:text-blue-600">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg></button>
       </div>
      </div><!-- Mobile Menu -->
      <div id="mobileMenu" class="lg:hidden hidden pb-4">
-      <div class="flex flex-col space-y-3"><a href="#home" class="text-slate-600 hover:text-indigo-600 py-2 font-medium" data-lang="ka">მთავარი</a> <a href="#about" class="text-slate-600 hover:text-indigo-600 py-2 font-medium" data-lang="ka">ჩვენ შესახებ</a> <a href="#services" class="text-slate-600 hover:text-indigo-600 py-2 font-medium" data-lang="ka">სერვისები</a> <a href="#portfolio" class="text-slate-600 hover:text-indigo-600 py-2 font-medium" data-lang="ka">პორტფოლიო</a> <a href="#process" class="text-slate-600 hover:text-indigo-600 py-2 font-medium" data-lang="ka">პროცესი</a> <a href="#blog" class="text-slate-600 hover:text-indigo-600 py-2 font-medium" data-lang="ka">ბლოგი</a> <a href="#contact" class="text-slate-600 hover:text-indigo-600 py-2 font-medium" data-lang="ka">კონტაქტი</a>
+      <div class="flex flex-col space-y-3"><a href="#home" class="text-slate-600 hover:text-blue-600 py-2 font-medium" data-lang="ka">მთავარი</a> <a href="#about" class="text-slate-600 hover:text-blue-600 py-2 font-medium" data-lang="ka">ჩვენ შესახებ</a> <a href="#services" class="text-slate-600 hover:text-blue-600 py-2 font-medium" data-lang="ka">სერვისები</a> <a href="#portfolio" class="text-slate-600 hover:text-blue-600 py-2 font-medium" data-lang="ka">პორტფოლიო</a> <a href="#process" class="text-slate-600 hover:text-blue-600 py-2 font-medium" data-lang="ka">პროცესი</a> <a href="#blog" class="text-slate-600 hover:text-blue-600 py-2 font-medium" data-lang="ka">ბლოგი</a> <a href="#contact" class="text-slate-600 hover:text-blue-600 py-2 font-medium" data-lang="ka">კონტაქტი</a>
       </div>
      </div>
     </div>
    </nav><!-- Hero Section -->
    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"><!-- Background Blobs -->
-    <div class="blob w-96 h-96 bg-indigo-300 top-20 -left-48 animate-float"></div>
-    <div class="blob w-80 h-80 bg-purple-300 bottom-20 -right-40 animate-float" style="animation-delay: -3s;"></div>
-    <div class="blob w-64 h-64 bg-pink-200 top-1/2 left-1/3 animate-float" style="animation-delay: -1.5s;"></div>
+    <div class="blob w-96 h-96 bg-blue-300 top-20 -left-48 animate-float"></div>
+    <div class="blob w-80 h-80 bg-blue-200 bottom-20 -right-40 animate-float" style="animation-delay: -3s;"></div>
+    <div class="blob w-64 h-64 bg-blue-100 top-1/2 left-1/3 animate-float" style="animation-delay: -1.5s;"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
      <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div class="text-center lg:text-left">
-       <div class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-6 animate-fade-in-up"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-2 animate-pulse"></span> <span data-lang="ka">პრემიუმ ვებ სააგენტო</span>
+       <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6 animate-fade-in-up"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span> <span data-lang="ka">პრემიუმ ვებ სააგენტო</span>
        </div>
        <h1 id="heroTitle" class="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight mb-6 animate-fade-in-up stagger-1"><span data-lang="ka">შენი ბიზნესის</span><br><span class="gradient-text" data-lang="ka">იდენტობა იწყება აქ</span></h1>
        <p id="heroSubtitle" class="text-xl text-slate-600 mb-8 max-w-xl animate-fade-in-up stagger-2" data-lang="ka">იდენტობა რომელიც საიტად იქცევა — ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს გამოარჩევს და შედეგს მოგიტანთ.</p>
-       <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up stagger-3"><a href="#contact" class="px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 transform hover:scale-105 text-center"> <span data-lang="ka">დავიწყოთ პროექტი</span> </a> <a href="#portfolio" class="px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl border-2 border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition-all duration-300 text-center"> <span data-lang="ka">ვნახოთ ნამუშევრები</span> </a>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up stagger-3"><a href="#contact" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105 text-center"> <span data-lang="ka">დავიწყოთ პროექტი</span> </a> <a href="#portfolio" class="px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl border-2 border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all duration-300 text-center"> <span data-lang="ka">ვნახოთ ნამუშევრები</span> </a>
        </div><!-- Stats -->
        <div class="grid grid-cols-3 gap-6 mt-12 animate-fade-in-up stagger-4">
         <div class="text-center lg:text-left">
@@ -159,7 +159,7 @@
         </div>
         <div class="absolute top-20 right-0 w-56 h-48 glass-card rounded-2xl p-4 animate-float shadow-xl" style="animation-delay: -2s;">
          <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mx-auto mb-3 flex items-center justify-center">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mx-auto mb-3 flex items-center justify-center">
            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
            </svg>
           </div>
@@ -175,12 +175,12 @@
          <div class="flex items-center justify-between mb-4"><span class="font-semibold text-slate-700" data-lang="ka">კონვერსია</span> <span class="text-green-500 font-medium">+24%</span>
          </div>
          <div class="flex items-end space-x-2 h-20">
-          <div class="flex-1 bg-indigo-200 rounded-t" style="height: 40%"></div>
-          <div class="flex-1 bg-indigo-300 rounded-t" style="height: 55%"></div>
-          <div class="flex-1 bg-indigo-400 rounded-t" style="height: 45%"></div>
-          <div class="flex-1 bg-indigo-500 rounded-t" style="height: 70%"></div>
-          <div class="flex-1 bg-purple-500 rounded-t" style="height: 85%"></div>
-          <div class="flex-1 bg-purple-600 rounded-t" style="height: 100%"></div>
+          <div class="flex-1 bg-blue-200 rounded-t" style="height: 40%"></div>
+          <div class="flex-1 bg-blue-300 rounded-t" style="height: 55%"></div>
+          <div class="flex-1 bg-blue-400 rounded-t" style="height: 45%"></div>
+          <div class="flex-1 bg-blue-500 rounded-t" style="height: 70%"></div>
+          <div class="flex-1 bg-blue-600 rounded-t" style="height: 85%"></div>
+          <div class="flex-1 bg-blue-700 rounded-t" style="height: 100%"></div>
          </div>
         </div>
        </div>
@@ -216,7 +216,7 @@
    </section><!-- About Section -->
    <section id="about" class="py-24 bg-gradient-to-b from-white to-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">ჩვენ შესახებ</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">ჩვენ შესახებ</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">ბრენდის იდენტობას ციფრულ გამოცდილებად ვაქცევთ</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto" data-lang="ka">IDENTISITE არის პრემიუმ ვებ სააგენტო, რომელიც ბიზნესებს ეხმარება ციფრულ სამყაროში გამორჩეული და დასამახსოვრებელი იდენტობის შექმნაში.</p>
      </div>
@@ -226,16 +226,16 @@
        <p class="text-slate-600 mb-6" data-lang="ka">2019 წელს დაარსებული IDENTISITE წამოვიდა ერთი მარტივი იდეით — ყოველ ბიზნესს აქვს უნიკალური იდენტობა, რომელიც იმსახურებს გამორჩეულ ციფრულ წარმოჩენას. დღეს ჩვენ 150-ზე მეტი წარმატებული პროექტი გვაქვს და ვაგრძელებთ ზრდას.</p>
        <div class="grid sm:grid-cols-2 gap-6">
         <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-         <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
          </div>
          <h4 class="font-semibold text-slate-800 mb-2" data-lang="ka">მისია</h4>
          <p class="text-slate-600 text-sm" data-lang="ka">ბიზნესების გაძლიერება ინოვაციური ციფრული გადაწყვეტილებებით</p>
         </div>
         <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-         <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
           </svg>
          </div>
          <h4 class="font-semibold text-slate-800 mb-2" data-lang="ka">ხედვა</h4>
@@ -244,7 +244,7 @@
        </div>
       </div>
       <div class="relative">
-       <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-8 text-white">
+       <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl p-8 text-white">
         <h4 class="text-xl font-semibold mb-6" data-lang="ka">ჩვენი ფილოსოფია</h4>
         <ul class="space-y-4">
          <li class="flex items-start space-x-3">
@@ -267,14 +267,14 @@
       <h3 class="text-2xl font-bold text-slate-800 text-center mb-12" data-lang="ka">ჩვენი გუნდი</h3>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
        <div class="text-center group">
-        <div class="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-2xl flex items-center justify-center text-4xl text-white font-bold group-hover:scale-105 transition-transform">
+        <div class="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-indigo-400 to-blue-600 rounded-2xl flex items-center justify-center text-4xl text-white font-bold group-hover:scale-105 transition-transform">
          გ.კ
         </div>
         <h4 class="font-semibold text-slate-800">გიორგი კვარაცხელია</h4>
         <p class="text-slate-500 text-sm" data-lang="ka">დამფუძნებელი &amp; CEO</p>
        </div>
        <div class="text-center group">
-        <div class="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center text-4xl text-white font-bold group-hover:scale-105 transition-transform">
+        <div class="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl flex items-center justify-center text-4xl text-white font-bold group-hover:scale-105 transition-transform">
          ნ.ბ
         </div>
         <h4 class="font-semibold text-slate-800">ნინო ბერიძე</h4>
@@ -300,13 +300,13 @@
    </section><!-- Services Section -->
    <section id="services" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">სერვისები</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">სერვისები</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">რას გთავაზობთ</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto" data-lang="ka">სრული სპექტრი ციფრული გადაწყვეტილებები თქვენი ბიზნესის ზრდისთვის</p>
      </div>
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Service 1 -->
       <div class="group p-8 bg-gradient-to-b from-slate-50 to-white rounded-3xl border border-slate-100 hover-lift">
-       <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+       <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
         </svg>
        </div>
@@ -321,13 +321,13 @@
          <svg class="w-4 h-4 text-green-500" fill="currentColor" viewbox="0 0 20 20">
           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
          </svg><span data-lang="ka">SEO ოპტიმიზაცია</span></li>
-       </ul><a href="#contact" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"> <span data-lang="ka">შეკვეთა</span>
+       </ul><a href="#contact" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700"> <span data-lang="ka">შეკვეთა</span>
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg></a>
       </div><!-- Service 2 -->
       <div class="group p-8 bg-gradient-to-b from-slate-50 to-white rounded-3xl border border-slate-100 hover-lift">
-       <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+       <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
         </svg>
        </div>
@@ -342,7 +342,7 @@
          <svg class="w-4 h-4 text-green-500" fill="currentColor" viewbox="0 0 20 20">
           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
          </svg><span data-lang="ka">ადმინ პანელი</span></li>
-       </ul><a href="#contact" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"> <span data-lang="ka">შეკვეთა</span>
+       </ul><a href="#contact" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700"> <span data-lang="ka">შეკვეთა</span>
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg></a>
@@ -363,7 +363,7 @@
          <svg class="w-4 h-4 text-green-500" fill="currentColor" viewbox="0 0 20 20">
           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
          </svg><span data-lang="ka">სწრაფი ჩატვირთვა</span></li>
-       </ul><a href="#contact" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"> <span data-lang="ka">შეკვეთა</span>
+       </ul><a href="#contact" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700"> <span data-lang="ka">შეკვეთა</span>
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg></a>
@@ -384,7 +384,7 @@
          <svg class="w-4 h-4 text-green-500" fill="currentColor" viewbox="0 0 20 20">
           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
          </svg><span data-lang="ka">პროტოტიპირება</span></li>
-       </ul><a href="#contact" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"> <span data-lang="ka">შეკვეთა</span>
+       </ul><a href="#contact" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700"> <span data-lang="ka">შეკვეთა</span>
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg></a>
@@ -405,7 +405,7 @@
          <svg class="w-4 h-4 text-green-500" fill="currentColor" viewbox="0 0 20 20">
           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
          </svg><span data-lang="ka">პერფორმანსის გაუმჯობესება</span></li>
-       </ul><a href="#contact" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"> <span data-lang="ka">შეკვეთა</span>
+       </ul><a href="#contact" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700"> <span data-lang="ka">შეკვეთა</span>
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg></a>
@@ -426,7 +426,7 @@
          <svg class="w-4 h-4 text-green-500" fill="currentColor" viewbox="0 0 20 20">
           <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
          </svg><span data-lang="ka">ტექნიკური SEO</span></li>
-       </ul><a href="#contact" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700"> <span data-lang="ka">შეკვეთა</span>
+       </ul><a href="#contact" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700"> <span data-lang="ka">შეკვეთა</span>
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg></a>
@@ -434,14 +434,14 @@
      </div>
     </div>
    </section><!-- Why Choose Us Section -->
-   <section class="py-24 bg-gradient-to-b from-indigo-50 to-white">
+   <section class="py-24 bg-gradient-to-b from-blue-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">რატომ ჩვენ</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">რატომ ჩვენ</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">რატომ IDENTISITE?</h2>
      </div>
      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="text-center p-6">
-       <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+       <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
         </svg>
        </div>
@@ -477,12 +477,12 @@
    </section><!-- Portfolio Section -->
    <section id="portfolio" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">პორტფოლიო</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">პორტფოლიო</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">ჩვენი ნამუშევრები</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto" data-lang="ka">გაეცანით ჩვენს წარმატებულ პროექტებს</p>
      </div>
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Project 1 -->
-      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 aspect-[4/3] hover-lift cursor-pointer">
+      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500 to-blue-700 aspect-[4/3] hover-lift cursor-pointer">
        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
        <div class="absolute inset-0 flex flex-col justify-end p-6 text-white translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
         <h3 class="text-xl font-bold mb-2">TechCorp Website</h3>
@@ -547,7 +547,7 @@
         </svg>
        </div>
       </div><!-- Project 6 -->
-      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-500 to-purple-600 aspect-[4/3] hover-lift cursor-pointer">
+      <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-500 to-blue-700 aspect-[4/3] hover-lift cursor-pointer">
        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
        <div class="absolute inset-0 flex flex-col justify-end p-6 text-white translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
         <h3 class="text-xl font-bold mb-2">RealEstate Pro</h3>
@@ -565,35 +565,35 @@
    </section><!-- Process Section -->
    <section id="process" class="py-24 bg-gradient-to-b from-slate-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">პროცესი</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">პროცესი</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">როგორ ვმუშაობთ</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto" data-lang="ka">გამჭვირვალე და ეფექტური პროცესი თქვენი პროექტის წარმატებისთვის</p>
      </div>
      <div class="relative"><!-- Timeline Line -->
-      <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-purple-600 transform -translate-x-1/2"></div>
+      <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-blue-700 transform -translate-x-1/2"></div>
       <div class="space-y-12 lg:space-y-0"><!-- Step 1 -->
        <div class="relative lg:grid lg:grid-cols-2 lg:gap-16 items-center lg:pb-20">
         <div class="lg:text-right lg:pr-16">
-         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
+         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
           1
          </div>
          <h3 class="text-xl font-bold text-slate-800 mb-3" data-lang="ka">კონსულტაცია</h3>
          <p class="text-slate-600" data-lang="ka">უფასო კონსულტაცია, სადაც ვისმენთ თქვენს მოთხოვნებს, მიზნებს და ხედვას. განვიხილავთ პროექტის მასშტაბს და ვადებს.</p>
         </div>
         <div class="hidden lg:flex items-center justify-start pl-16">
-         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
+         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
           1
          </div>
         </div>
        </div><!-- Step 2 -->
        <div class="relative lg:grid lg:grid-cols-2 lg:gap-16 items-center lg:pb-20">
         <div class="hidden lg:flex items-center justify-end pr-16">
-         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
+         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
           2
          </div>
         </div>
         <div class="lg:pl-16">
-         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
+         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
           2
          </div>
          <h3 class="text-xl font-bold text-slate-800 mb-3" data-lang="ka">კვლევა და სტრატეგია</h3>
@@ -602,26 +602,26 @@
        </div><!-- Step 3 -->
        <div class="relative lg:grid lg:grid-cols-2 lg:gap-16 items-center lg:pb-20">
         <div class="lg:text-right lg:pr-16">
-         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
+         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
           3
          </div>
          <h3 class="text-xl font-bold text-slate-800 mb-3" data-lang="ka">დიზაინი</h3>
          <p class="text-slate-600" data-lang="ka">უნიკალური დიზაინის შექმნა, Wireframe და Mockup. თქვენი უკუკავშირი და დამტკიცება პროცესის ყოველ ეტაპზე.</p>
         </div>
         <div class="hidden lg:flex items-center justify-start pl-16">
-         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
+         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
           3
          </div>
         </div>
        </div><!-- Step 4 -->
        <div class="relative lg:grid lg:grid-cols-2 lg:gap-16 items-center lg:pb-20">
         <div class="hidden lg:flex items-center justify-end pr-16">
-         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
+         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
           4
          </div>
         </div>
         <div class="lg:pl-16">
-         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
+         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
           4
          </div>
          <h3 class="text-xl font-bold text-slate-800 mb-3" data-lang="ka">განვითარება</h3>
@@ -630,26 +630,26 @@
        </div><!-- Step 5 -->
        <div class="relative lg:grid lg:grid-cols-2 lg:gap-16 items-center lg:pb-20">
         <div class="lg:text-right lg:pr-16">
-         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
+         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
           5
          </div>
          <h3 class="text-xl font-bold text-slate-800 mb-3" data-lang="ka">ტესტირება</h3>
          <p class="text-slate-600" data-lang="ka">საფუძვლიანი ტესტირება ყველა მოწყობილობასა და ბრაუზერზე. ხარვეზების აღმოფხვრა და ოპტიმიზაცია.</p>
         </div>
         <div class="hidden lg:flex items-center justify-start pl-16">
-         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
+         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
           5
          </div>
         </div>
        </div><!-- Step 6 -->
        <div class="relative lg:grid lg:grid-cols-2 lg:gap-16 items-center">
         <div class="hidden lg:flex items-center justify-end pr-16">
-         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
+         <div class="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
           6
          </div>
         </div>
         <div class="lg:pl-16">
-         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
+         <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-full font-bold text-lg mb-4 lg:hidden">
           6
          </div>
          <h3 class="text-xl font-bold text-slate-800 mb-3" data-lang="ka">გაშვება და მხარდაჭერა</h3>
@@ -662,7 +662,7 @@
    </section><!-- Testimonials Section -->
    <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">შეფასებები</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">შეფასებები</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">რას ამბობენ კლიენტები</h2>
      </div>
      <div class="grid md:grid-cols-3 gap-8">
@@ -688,7 +688,7 @@
        </div>
        <p class="text-slate-600 mb-6" data-lang="ka">"IDENTISITE-მა ჩვენი ხედვა რეალობად აქცია. პროფესიონალური მიდგომა, დროული მიწოდება და შესანიშნავი შედეგი."</p>
        <div class="flex items-center">
-        <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+        <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
          ლ.გ
         </div>
         <div class="ml-4">
@@ -776,18 +776,18 @@
    </section><!-- Blog Section -->
    <section id="blog" class="py-24 bg-gradient-to-b from-slate-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">ბლოგი</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">ბლოგი</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">სიახლეები და სტატიები</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto" data-lang="ka">სასარგებლო ინფორმაცია ვებსაიტების, დიზაინის და ბიზნესის ზრდის შესახებ</p>
      </div>
      <div class="grid md:grid-cols-3 gap-8">
       <article class="group bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover-lift">
-       <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600"></div>
+       <div class="aspect-video bg-gradient-to-br from-blue-500 to-blue-700"></div>
        <div class="p-6">
         <div class="flex items-center space-x-4 text-sm text-slate-500 mb-3"><span>15 იანვარი, 2024</span> <span>•</span> <span data-lang="ka">5 წუთი</span>
         </div>
-        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors" data-lang="ka">2024 წლის ვებ დიზაინის ტრენდები</h3>
-        <p class="text-slate-600 text-sm mb-4" data-lang="ka">რა ტენდენციები განსაზღვრავს ვებ დიზაინის მომავალს და როგორ გამოიყენოთ ისინი...</p><a href="#" class="inline-flex items-center text-indigo-600 font-medium text-sm hover:text-indigo-700"> <span data-lang="ka">წაიკითხე მეტი</span>
+        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors" data-lang="ka">2024 წლის ვებ დიზაინის ტრენდები</h3>
+        <p class="text-slate-600 text-sm mb-4" data-lang="ka">რა ტენდენციები განსაზღვრავს ვებ დიზაინის მომავალს და როგორ გამოიყენოთ ისინი...</p><a href="#" class="inline-flex items-center text-blue-600 font-medium text-sm hover:text-blue-700"> <span data-lang="ka">წაიკითხე მეტი</span>
          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
          </svg></a>
@@ -798,8 +798,8 @@
        <div class="p-6">
         <div class="flex items-center space-x-4 text-sm text-slate-500 mb-3"><span>10 იანვარი, 2024</span> <span>•</span> <span data-lang="ka">7 წუთი</span>
         </div>
-        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors" data-lang="ka">SEO ოპტიმიზაციის საფუძვლები</h3>
-        <p class="text-slate-600 text-sm mb-4" data-lang="ka">როგორ გააუმჯობესოთ თქვენი ვებსაიტის პოზიციები Google-ში...</p><a href="#" class="inline-flex items-center text-indigo-600 font-medium text-sm hover:text-indigo-700"> <span data-lang="ka">წაიკითხე მეტი</span>
+        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors" data-lang="ka">SEO ოპტიმიზაციის საფუძვლები</h3>
+        <p class="text-slate-600 text-sm mb-4" data-lang="ka">როგორ გააუმჯობესოთ თქვენი ვებსაიტის პოზიციები Google-ში...</p><a href="#" class="inline-flex items-center text-blue-600 font-medium text-sm hover:text-blue-700"> <span data-lang="ka">წაიკითხე მეტი</span>
          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
          </svg></a>
@@ -810,8 +810,8 @@
        <div class="p-6">
         <div class="flex items-center space-x-4 text-sm text-slate-500 mb-3"><span>5 იანვარი, 2024</span> <span>•</span> <span data-lang="ka">6 წუთი</span>
         </div>
-        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors" data-lang="ka">E-commerce წარმატების საიდუმლო</h3>
-        <p class="text-slate-600 text-sm mb-4" data-lang="ka">რა ფაქტორები განსაზღვრავს ონლაინ მაღაზიის წარმატებას...</p><a href="#" class="inline-flex items-center text-indigo-600 font-medium text-sm hover:text-indigo-700"> <span data-lang="ka">წაიკითხე მეტი</span>
+        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors" data-lang="ka">E-commerce წარმატების საიდუმლო</h3>
+        <p class="text-slate-600 text-sm mb-4" data-lang="ka">რა ფაქტორები განსაზღვრავს ონლაინ მაღაზიის წარმატებას...</p><a href="#" class="inline-flex items-center text-blue-600 font-medium text-sm hover:text-blue-700"> <span data-lang="ka">წაიკითხე მეტი</span>
          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
          </svg></a>
@@ -822,7 +822,7 @@
    </section><!-- Contact Section -->
    <section id="contact" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4" data-lang="ka">კონტაქტი</span>
+     <div class="text-center mb-16"><span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4" data-lang="ka">კონტაქტი</span>
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4" data-lang="ka">დავიწყოთ თანამშრომლობა</h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto" data-lang="ka">გაგვიზიარეთ თქვენი იდეა და დაიწყეთ თქვენი ციფრული ტრანსფორმაცია</p>
      </div>
@@ -830,28 +830,28 @@
       <div class="bg-gradient-to-b from-slate-50 to-white p-8 rounded-3xl border border-slate-100">
        <form id="contactForm" class="space-y-6">
         <div class="grid sm:grid-cols-2 gap-6">
-         <div><label for="name" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">სახელი *</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" placeholder="თქვენი სახელი">
+         <div><label for="name" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">სახელი *</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="თქვენი სახელი">
          </div>
-         <div><label for="email" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">ელფოსტა *</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" placeholder="your@email.com">
+         <div><label for="email" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">ელფოსტა *</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="your@email.com">
          </div>
         </div>
-        <div><label for="company" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">კომპანია</label> <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" placeholder="კომპანიის სახელი">
+        <div><label for="company" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">კომპანია</label> <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="კომპანიის სახელი">
         </div>
-        <div><label for="project" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">პროექტის აღწერა *</label> <textarea id="project" name="project" rows="4" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none" placeholder="მოგვიყევით თქვენი პროექტის შესახებ..."></textarea>
-        </div><button type="submit" id="submitBtn" class="w-full px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"> <span data-lang="ka">გაგზავნა</span> </button>
+        <div><label for="project" class="block text-sm font-medium text-slate-700 mb-2" data-lang="ka">პროექტის აღწერა *</label> <textarea id="project" name="project" rows="4" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none" placeholder="მოგვიყევით თქვენი პროექტის შესახებ..."></textarea>
+        </div><button type="submit" id="submitBtn" class="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"> <span data-lang="ka">გაგზავნა</span> </button>
         <div id="formMessage" class="hidden text-center p-4 rounded-xl"></div>
        </form>
       </div><!-- Contact Info -->
       <div class="space-y-8">
-       <div class="p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl">
+       <div class="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl">
         <div class="flex items-start space-x-4">
-         <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+         <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
          </div>
          <div>
           <h4 class="font-semibold text-slate-800 mb-1" data-lang="ka">ელფოსტა</h4>
-          <p id="contactEmailDisplay" class="text-slate-600">info@identisite.ge</p>
+          <p id="contactEmailDisplay" class="text-slate-600"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="335a5d555c735a57565d475a405a47561d5456">[email&#160;protected]</a></p>
          </div>
         </div>
        </div>
@@ -879,16 +879,16 @@
          </div>
         </div>
        </div><!-- Social Links -->
-       <div class="flex space-x-4"><a href="#" class="w-12 h-12 bg-slate-100 hover:bg-indigo-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-indigo-600 transition-all">
+       <div class="flex space-x-4"><a href="#" class="w-12 h-12 bg-slate-100 hover:bg-blue-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all">
          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
           <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-         </svg></a> <a href="#" class="w-12 h-12 bg-slate-100 hover:bg-indigo-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-indigo-600 transition-all">
+         </svg></a> <a href="#" class="w-12 h-12 bg-slate-100 hover:bg-blue-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all">
          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-         </svg></a> <a href="#" class="w-12 h-12 bg-slate-100 hover:bg-indigo-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-indigo-600 transition-all">
+         </svg></a> <a href="#" class="w-12 h-12 bg-slate-100 hover:bg-blue-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all">
          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-         </svg></a> <a href="#" class="w-12 h-12 bg-slate-100 hover:bg-indigo-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-indigo-600 transition-all">
+         </svg></a> <a href="#" class="w-12 h-12 bg-slate-100 hover:bg-blue-100 rounded-xl flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all">
          <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
           <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
          </svg></a>
@@ -934,7 +934,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div class="grid md:grid-cols-4 gap-12 mb-12">
       <div><a href="#home" class="flex items-center space-x-2 mb-6">
-        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center"><span class="text-white font-bold text-xl">I</span>
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center"><span class="text-white font-bold text-xl">I</span>
         </div><span class="text-2xl font-bold">IDENTISITE</span> </a>
        <p class="text-slate-400 text-sm" data-lang="ka">იდენტობა რომელიც საიტად იქცევა</p>
       </div>
@@ -959,7 +959,7 @@
       <div>
        <h4 class="font-semibold mb-4" data-lang="ka">კონტაქტი</h4>
        <ul class="space-y-2 text-slate-400 text-sm">
-        <li>info@identisite.ge</li>
+        <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="61080f070e210805040f1508120815044f0604">[email&#160;protected]</a></li>
         <li>+995 555 123 456</li>
         <li data-lang="ka">თბილისი, საქართველო</li>
        </ul>
@@ -973,7 +973,7 @@
     </div>
    </footer>
   </div>
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Default configuration
     const defaultConfig = {
       hero_title: 'შენი ბიზნესის იდენტობა იწყება აქ',
@@ -1260,5 +1260,4 @@
       observer.observe(section);
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d6b5353d0cd95a0',t:'MTc3MjU2OTA1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d6b5353d0cd95a0',t:'MTc3MjU2OTA1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidd
