@@ -3,182 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IDENTISITE | Modern Identity Systems</title>
+  <title>IDENTISITE | Minimalist Accordion UI</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { font-family: 'Inter', 'Noto Sans Georgian', sans-serif; cursor: none; }
+    * { font-family: 'Noto Sans Georgian', sans-serif; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
     html { scroll-behavior: smooth; }
-    body { background-color: #ffffff; color: #000000; overflow-x: hidden; }
+    body { background-color: #ffffff; color: #111111; }
 
-    /* Custom Cursor */
-    #cursor {
-      width: 12px; height: 12px; background: #000; border-radius: 50%;
-      position: fixed; pointer-events: none; z-index: 9999;
-      transition: transform 0.2s ease;
+    /* Matte Navy & Grey Shades */
+    .bg-matte-navy { background-color: #001a33; }
+    .text-matte-navy { color: #001a33; }
+    .bg-soft-grey { background-color: #f5f5f7; }
+
+    /* Accordion Logic */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, padding 0.5s ease;
     }
-
-    /* Minimal Lines & Transitions */
-    .line-grow {
-      height: 1px; width: 0; background: #000;
-      transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    .accordion-item.active .accordion-content {
+      max-height: 1000px;
+      padding-bottom: 3rem;
     }
-    .section-visible .line-grow { width: 100%; }
-
-    .nav-item { font-size: 11px; letter-spacing: 0.2em; font-weight: 600; text-transform: uppercase; }
+    .accordion-item.active .plus-icon {
+      transform: rotate(45deg);
+    }
     
-    .hover-reveal {
-      position: relative; overflow: hidden;
+    .accordion-row {
+      border-bottom: 1px solid #e5e7eb;
+      cursor: pointer;
     }
-    .hover-reveal::after {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-      background: #000; transform: translateY(100%); transition: transform 0.4s ease;
-      z-index: -1;
+    .accordion-row:hover {
+      background-color: #fafafa;
     }
-    .hover-reveal:hover::after { transform: translateY(0); }
-    .hover-reveal:hover { color: #fff; }
 
-    /* Stats floating */
-    .stat-blur { backdrop-filter: blur(10px); background: rgba(255,255,255,0.1); border: 1px solid #eee; }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { animation: fadeIn 1s forwards; }
+    .nav-link { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
   </style>
 </head>
 <body class="antialiased">
 
-  <div id="cursor" class="hidden md:block"></div>
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 px-8 py-6">
+    <div class="max-w-[1600px] mx-auto flex justify-between items-center">
+      <a href="#" class="text-xl font-bold tracking-tighter text-matte-navy">IDENTISITE</a>
+      <div class="hidden lg:flex space-x-10">
+        <a href="#" class="nav-link text-gray-400 hover:text-matte-navy">Menu</a>
+        <a href="#" class="nav-link text-gray-400">GE / EN</a>
+      </div>
+    </div>
+  </nav>
 
-  <header class="fixed top-0 w-full z-50 mix-blend-difference py-10 px-8 md:px-16 flex justify-between items-center">
-    <a href="#" class="text-xl font-bold tracking-tighter text-white">IDENTISITE.</a>
-    <nav class="hidden lg:flex space-x-10 text-white">
-      <a href="#home" class="nav-item opacity-60 hover:opacity-100 transition">მთავარი</a>
-      <a href="#about" class="nav-item opacity-60 hover:opacity-100 transition">ჩვენ შესახებ</a>
-      <a href="#services" class="nav-item opacity-60 hover:opacity-100 transition">სერვისები</a>
-      <a href="#portfolio" class="nav-item opacity-60 hover:opacity-100 transition">პორტფოლიო</a>
-      <a href="#process" class="nav-item opacity-60 hover:opacity-100 transition">პროცესი</a>
-      <a href="#blog" class="nav-item opacity-60 hover:opacity-100 transition">ბლოგი</a>
-      <a href="#contact" class="nav-item opacity-60 hover:opacity-100 transition">კონტაქტი</a>
-    </nav>
-    <div class="text-white nav-item">GE / EN</div>
-  </header>
-
-  <section id="home" class="min-h-screen flex flex-col justify-center px-8 md:px-16 relative">
-    <div class="max-w-6xl">
-      <span class="text-xs uppercase tracking-[0.5em] text-gray-400 mb-8 block reveal">Digital Boutique Agency</span>
-      <h1 class="text-6xl md:text-[120px] font-medium leading-[0.85] tracking-tighter mb-12 reveal" style="animation-delay: 0.2s;">
-        WE TURN <br> IDENTITY <br> <span class="italic text-gray-200">INTO ART.</span>
+  <section class="pt-48 pb-20 px-8">
+    <div class="max-w-[1600px] mx-auto">
+      <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-matte-navy mb-10">
+        იდენტობა <br> საიტად.
       </h1>
-      <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-12 reveal" style="animation-delay: 0.4s;">
-        <p class="text-lg max-w-sm text-gray-500 leading-snug">
-          იდენტობა რომელიც საიტად იქცევა. მინიმალისტური ესთეტიკა, მაქსიმალური შედეგი.
-        </p>
-        <a href="#contact" class="inline-block border border-black px-10 py-5 nav-item hover:bg-black hover:text-white transition-all">
-          დავიწყოთ პროექტი
-        </a>
-      </div>
-    </div>
-
-    <div class="absolute right-0 top-0 h-full w-1/3 border-l border-gray-50 -z-10 hidden md:block"></div>
-  </section>
-
-  <section id="services" class="py-32 px-8 md:px-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex justify-between items-end mb-20">
-        <h2 class="text-4xl md:text-6xl font-light tracking-tight">Capabilities</h2>
-        <span class="nav-item text-gray-400">01 — Services</span>
-      </div>
-
-      <div class="space-y-0 border-t border-gray-200">
-        <div class="group py-12 border-b border-gray-200 flex flex-col md:flex-row justify-between md:items-center hover:px-6 transition-all duration-500 cursor-pointer bg-white">
-          <div>
-            <span class="text-xs text-gray-400 mr-8">01</span>
-            <h3 class="text-3xl md:text-5xl font-light group-hover:italic transition-all">UX/UI დიზაინი</h3>
-          </div>
-          <p class="text-gray-400 max-w-xs text-sm mt-4 md:mt-0">უნიკალური ვიზუალური ენა თქვენი ბრენდისთვის.</p>
-        </div>
-
-        <div class="group py-12 border-b border-gray-200 flex flex-col md:flex-row justify-between md:items-center hover:px-6 transition-all duration-500 cursor-pointer bg-white">
-          <div>
-            <span class="text-xs text-gray-400 mr-8">02</span>
-            <h3 class="text-3xl md:text-5xl font-light group-hover:italic transition-all">E-commerce</h3>
-          </div>
-          <p class="text-gray-400 max-w-xs text-sm mt-4 md:mt-0">გაყიდვებზე ორიენტირებული დახვეწილი პლატფორმები.</p>
-        </div>
-
-        <div class="group py-12 border-b border-gray-200 flex flex-col md:flex-row justify-between md:items-center hover:px-6 transition-all duration-500 cursor-pointer bg-white">
-          <div>
-            <span class="text-xs text-gray-400 mr-8">03</span>
-            <h3 class="text-3xl md:text-5xl font-light group-hover:italic transition-all">Branding</h3>
-          </div>
-          <p class="text-gray-400 max-w-xs text-sm mt-4 md:mt-0">იდენტობის შექმნა, რომელიც დროს უძლებს.</p>
-        </div>
-      </div>
+      <p class="text-xl text-gray-400 max-w-lg">
+        მინიმალისტური სისტემები ბიზნესის ციფრული ტრანსფორმაციისთვის.
+      </p>
     </div>
   </section>
 
-  <section id="process" class="py-32 px-8 md:px-16 overflow-hidden">
-    <div class="max-w-7xl mx-auto">
-      <span class="nav-item text-gray-400 block mb-20">02 — The Method</span>
-      <div class="grid md:grid-cols-4 gap-12">
-        <div>
-          <h4 class="text-sm font-bold uppercase mb-6 tracking-widest">01 / კვლევა</h4>
-          <p class="text-gray-500 text-sm leading-relaxed">ვიწყებთ თქვენი ბიზნესის დნმ-ის შესწავლით.</p>
+  <section class="px-8 pb-40">
+    <div class="max-w-[1600px] mx-auto border-t border-gray-200">
+      
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-row py-10 flex justify-between items-center group">
+          <div class="flex items-center space-x-12">
+            <span class="text-xs font-bold text-gray-300">01</span>
+            <h2 class="text-3xl md:text-5xl font-medium group-hover:pl-4 transition-all">ჩვენ შესახებ</h2>
+          </div>
+          <div class="plus-icon text-3xl font-light">+</div>
         </div>
-        <div>
-          <h4 class="text-sm font-bold uppercase mb-6 tracking-widest">02 / სტრატეგია</h4>
-          <p class="text-gray-500 text-sm leading-relaxed">ვქმნით გზამკვლევს ციფრული წარმატებისთვის.</p>
-        </div>
-        <div>
-          <h4 class="text-sm font-bold uppercase mb-6 tracking-widest">03 / დიზაინი</h4>
-          <p class="text-gray-500 text-sm leading-relaxed">ვიზუალიზაცია, სადაც ყოველი პიქსელი მნიშვნელოვანია.</p>
-        </div>
-        <div>
-          <h4 class="text-sm font-bold uppercase mb-6 tracking-widest">04 / გაშვება</h4>
-          <p class="text-gray-500 text-sm leading-relaxed">პროექტის დასრულება და მუდმივი მხარდაჭერა.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-40 px-8 md:px-16 bg-black text-white">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-5xl md:text-[12vw] font-bold leading-none tracking-tighter mb-20">LET'S TALK.</h2>
-      <div class="grid md:grid-cols-2 gap-20 text-left">
-        <div>
-          <span class="nav-item text-gray-500 block mb-8">Contact Information</span>
-          <a href="mailto:hello@identisite.ge" class="text-2xl md:text-4xl hover:text-gray-400 transition">hello@identisite.ge</a>
-          <p class="mt-4 text-xl">+995 555 00 00 00</p>
-        </div>
-        <div class="flex flex-col justify-end items-start md:items-end">
-          <span class="nav-item text-gray-500 block mb-8">Social Systems</span>
-          <div class="flex space-x-6">
-            <a href="#" class="hover-reveal px-4 py-2 border border-white/20 rounded-full">INSTAGRAM</a>
-            <a href="#" class="hover-reveal px-4 py-2 border border-white/20 rounded-full">LINKEDIN</a>
+        <div class="accordion-content">
+          <div class="grid lg:grid-cols-2 gap-10 pt-10">
+            <p class="text-xl text-gray-500 leading-relaxed">
+              2019 წლიდან IDENTISITE ქმნის პრემიუმ ვებ პროდუქტებს. ჩვენი ფილოსოფია მარტივია: ყოველი ბრენდი უნიკალურია და მას სჭირდება ინდივიდუალური ციფრული ენა.
+            </p>
+            <div class="bg-soft-grey p-10 rounded-3xl">
+              <h4 class="font-bold text-matte-navy mb-4">ჩვენი მისია</h4>
+              <p class="text-gray-500">ბიზნესის უნიკალური იდენტობის გარდასახვა მაღალტექნოლოგიურ ციფრულ აქტივად.</p>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-row py-10 flex justify-between items-center group">
+          <div class="flex items-center space-x-12">
+            <span class="text-xs font-bold text-gray-300">02</span>
+            <h2 class="text-3xl md:text-5xl font-medium group-hover:pl-4 transition-all">სერვისები</h2>
+          </div>
+          <div class="plus-icon text-3xl font-light">+</div>
+        </div>
+        <div class="accordion-content">
+          <div class="grid md:grid-cols-3 gap-6 pt-10">
+            <div class="p-8 border border-gray-100 rounded-3xl hover:bg-matte-navy hover:text-white group">
+              <h3 class="text-xl font-bold mb-4">UX/UI დიზაინი</h3>
+              <p class="text-sm opacity-60">თანამედროვე ინტერფეისები მომხმარებლის საუკეთესო გამოცდილებისთვის.</p>
+            </div>
+            <div class="p-8 border border-gray-100 rounded-3xl hover:bg-matte-navy hover:text-white">
+              <h3 class="text-xl font-bold mb-4">E-commerce</h3>
+              <p class="text-sm opacity-60">სრულფასოვანი ონლაინ მაღაზიები და გადახდის სისტემები.</p>
+            </div>
+            <div class="p-8 border border-gray-100 rounded-3xl hover:bg-matte-navy hover:text-white">
+              <h3 class="text-xl font-bold mb-4">ბრენდინგი</h3>
+              <p class="text-sm opacity-60">ვიზუალური სტრატეგია, რომელიც გამოგარჩევთ ბაზარზე.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-row py-10 flex justify-between items-center group">
+          <div class="flex items-center space-x-12">
+            <span class="text-xs font-bold text-gray-300">03</span>
+            <h2 class="text-3xl md:text-5xl font-medium group-hover:pl-4 transition-all">პორტფოლიო</h2>
+          </div>
+          <div class="plus-icon text-3xl font-light">+</div>
+        </div>
+        <div class="accordion-content">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10">
+            <div class="aspect-video bg-soft-grey rounded-2xl flex items-center justify-center text-gray-300">Project 01</div>
+            <div class="aspect-video bg-soft-grey rounded-2xl flex items-center justify-center text-gray-300">Project 02</div>
+            <div class="aspect-video bg-soft-grey rounded-2xl flex items-center justify-center text-gray-300">Project 03</div>
+            <div class="aspect-video bg-soft-grey rounded-2xl flex items-center justify-center text-gray-300">Project 04</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-row py-10 flex justify-between items-center group">
+          <div class="flex items-center space-x-12">
+            <span class="text-xs font-bold text-gray-300">04</span>
+            <h2 class="text-3xl md:text-5xl font-medium group-hover:pl-4 transition-all">პროცესი</h2>
+          </div>
+          <div class="plus-icon text-3xl font-light">+</div>
+        </div>
+        <div class="accordion-content">
+          <div class="grid md:grid-cols-4 gap-8 pt-10">
+            <div><h5 class="font-bold text-matte-navy mb-2">01. კვლევა</h5><p class="text-sm text-gray-400">ანალიზი და მიზნების დასახვა.</p></div>
+            <div><h5 class="font-bold text-matte-navy mb-2">02. დიზაინი</h5><p class="text-sm text-gray-400">ვიზუალური სტრუქტურის შექმნა.</p></div>
+            <div><h5 class="font-bold text-matte-navy mb-2">03. კოდი</h5><p class="text-sm text-gray-400">იდეის ქცევა რეალურ საიტად.</p></div>
+            <div><h5 class="font-bold text-matte-navy mb-2">04. ლაივი</h5><p class="text-sm text-gray-400">პროექტის ჩაშვება და მხარდაჭერა.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-row py-10 flex justify-between items-center group">
+          <div class="flex items-center space-x-12">
+            <span class="text-xs font-bold text-gray-300">05</span>
+            <h2 class="text-3xl md:text-5xl font-medium group-hover:pl-4 transition-all">ბლოგი</h2>
+          </div>
+          <div class="plus-icon text-3xl font-light">+</div>
+        </div>
+        <div class="accordion-content">
+          <div class="pt-10 space-y-4">
+            <a href="#" class="block p-6 hover:bg-soft-grey rounded-2xl">
+              <span class="text-xs text-gray-400">24 მაისი, 2024</span>
+              <h4 class="text-xl font-bold">თანამედროვე ვებ-დიზაინის ტრენდები</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" onclick="toggleAccordion(this)">
+        <div class="accordion-row py-10 flex justify-between items-center group border-b-0">
+          <div class="flex items-center space-x-12">
+            <span class="text-xs font-bold text-gray-300">06</span>
+            <h2 class="text-3xl md:text-5xl font-medium group-hover:pl-4 transition-all">კონტაქტი</h2>
+          </div>
+          <div class="plus-icon text-3xl font-light">+</div>
+        </div>
+        <div class="accordion-content">
+          <div class="grid md:grid-cols-2 gap-10 pt-10">
+            <div>
+              <h4 class="text-4xl font-bold mb-6">მოგვწერეთ.</h4>
+              <p class="text-gray-400 mb-8">მზად ვართ ახალი გამოწვევებისთვის.</p>
+              <a href="mailto:hello@identisite.ge" class="text-2xl border-b border-black pb-2">hello@identisite.ge</a>
+            </div>
+            <form class="space-y-4">
+              <input type="text" placeholder="სახელი" class="w-full p-4 bg-soft-grey rounded-xl border-none outline-none">
+              <textarea placeholder="შეტყობინება" class="w-full p-4 bg-soft-grey rounded-xl border-none outline-none h-32"></textarea>
+              <button class="bg-matte-navy text-white px-10 py-4 rounded-xl font-bold w-full md:w-auto">გაგზავნა</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <footer class="py-12 px-8 md:px-16 border-t border-gray-100 flex justify-between items-center text-[10px] tracking-[0.3em] font-bold uppercase text-gray-400">
-    <div>© 2026 IDENTISITE. ALL RIGHTS RESERVED.</div>
-    <div>MADE FOR THOSE WHO VALUE IDENTITY.</div>
+  <footer class="p-8 border-t border-gray-100">
+    <div class="max-w-[1600px] mx-auto flex justify-between items-center">
+      <p class="text-xs font-bold text-gray-300 uppercase tracking-widest">© 2026 IDENTISITE</p>
+      <div class="flex space-x-6 text-xs font-bold uppercase tracking-widest">
+        <a href="#" class="hover:text-matte-navy">Instagram</a>
+        <a href="#" class="hover:text-matte-navy">Facebook</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // Custom Cursor Movement
-    const cursor = document.getElementById('cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    // Simple interaction effect
-    document.querySelectorAll('a, button, .group').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
-      el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-    });
+    function toggleAccordion(element) {
+      // Close other items if you want only one open at a time
+      /*
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        if (item !== element) item.classList.remove('active');
+      });
+      */
+      element.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
