@@ -3,193 +3,190 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IDENTISITE - იდენტობა რომელიც საიტად იქცევა. მინიმალისტური პრემიუმ დიზაინი.">
-  <title>IDENTISITE | Minimalist Identity</title>
+  <title>IDENTISITE | Premium Minimalism</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { font-family: 'Noto Sans Georgian', 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
     
-    body {
-      background-color: #ffffff;
-      color: #1a1a1a;
-    }
+    body { background-color: #ffffff; color: #121212; }
 
-    /* Tegeta Style Matte Colors */
-    .bg-matte-navy { background-color: #001a33; } /* მუქი ლურჯი მატოვი */
-    .text-matte-navy { color: #001a33; }
-    .bg-matte-grey { background-color: #f5f5f7; }
-    
-    /* Artmedia Style Cards */
-    .soft-card {
+    /* Matte Colors */
+    .bg-matte-dark { background-color: #121212; }
+    .bg-matte-navy { background-color: #001a33; }
+    .bg-matte-gray { background-color: #f8f8f8; }
+    .border-matte { border-color: #eeeeee; }
+
+    /* Minimalist Elements */
+    .nav-link { 
+        font-size: 13px; 
+        letter-spacing: 0.05em; 
+        transition: all 0.3s ease; 
+    }
+    .nav-link:hover { color: #666; }
+
+    .card-minimal {
       background: #ffffff;
-      border-radius: 24px;
-      border: 1px solid #e5e7eb;
-      transition: all 0.3s ease;
+      border-bottom: 1px solid #eee;
+      transition: all 0.4s ease;
     }
-    .soft-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-      border-color: #001a33;
+    .card-minimal:hover {
+      background: #fdfdfd;
+      padding-left: 20px;
+      border-bottom-color: #121212;
     }
 
-    .nav-link {
-      position: relative;
-      color: #4b5563;
-      transition: color 0.3s ease;
+    .btn-outline {
+      border: 1.5px solid #121212;
+      transition: all 0.3s ease;
     }
-    .nav-link:hover { color: #001a33; }
-    
-    .btn-matte {
-      background-color: #001a33;
+    .btn-outline:hover {
+      background: #121212;
       color: #ffffff;
-      transition: all 0.3s ease;
-      border-radius: 12px;
-    }
-    .btn-matte:hover {
-      background-color: #000000;
-      transform: translateY(-1px);
     }
 
-    .section-num {
-      font-size: 14px;
-      font-weight: 600;
-      color: #9ca3af;
-      margin-right: 12px;
+    .process-step {
+      border-left: 1px solid #eee;
+      padding-left: 2rem;
+      position: relative;
     }
+    .process-step::before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 1px;
+      height: 0;
+      background: #121212;
+      transition: height 0.5s ease;
+    }
+    .process-step:hover::before { height: 100%; }
   </style>
  </head>
- <body class="h-full overflow-auto">
+ <body class="h-full">
 
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-      <div class="flex items-center space-x-8">
-        <a href="#home" class="flex items-center space-x-2">
-          <div class="w-8 h-8 bg-matte-navy rounded flex items-center justify-center text-white font-bold">I</div>
-          <span class="text-xl font-bold tracking-tight text-matte-navy">IDENTISITE</span>
-        </a>
-      </div>
+  <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-matte">
+    <div class="max-w-[1400px] mx-auto px-8 h-24 flex justify-between items-center">
+      <a href="#" class="text-xl font-semibold tracking-tighter">IDENTISITE<span class="text-gray-300">.</span></a>
       
-      <div class="hidden lg:flex items-center space-x-10">
-        <a href="#home" class="nav-link text-sm font-semibold uppercase tracking-wider">მთავარი</a>
-        <a href="#about" class="nav-link text-sm font-semibold uppercase tracking-wider">ჩვენ შესახებ</a>
-        <a href="#services" class="nav-link text-sm font-semibold uppercase tracking-wider">სერვისები</a>
-        <a href="#contact" class="nav-link text-sm font-semibold uppercase tracking-wider">კონტაქტი</a>
+      <div class="hidden lg:flex items-center space-x-12">
+        <a href="#home" class="nav-link font-medium uppercase">მთავარი</a>
+        <a href="#about" class="nav-link font-medium uppercase">ჩვენ შესახებ</a>
+        <a href="#services" class="nav-link font-medium uppercase">სერვისები</a>
+        <a href="#portfolio" class="nav-link font-medium uppercase">პორტფოლიო</a>
+        <a href="#process" class="nav-link font-medium uppercase">პროცესი</a>
+        <a href="#blog" class="nav-link font-medium uppercase">ბლოგი</a>
+        <a href="#contact" class="nav-link font-medium uppercase">კონტაქტი</a>
       </div>
 
       <div class="flex items-center space-x-6">
-        <span class="text-xs font-bold text-gray-400 cursor-pointer hover:text-matte-navy">GE / EN</span>
-        <a href="#contact" class="btn-matte px-6 py-2.5 text-sm font-bold shadow-sm">დავიწყოთ</a>
+        <button class="text-xs font-bold border-b border-black">GE</button>
+        <a href="#contact" class="bg-matte-dark text-white text-xs font-bold px-6 py-3 rounded-full hover:opacity-80 transition">დავიწყოთ</a>
       </div>
     </div>
   </nav>
 
-  <section id="home" class="pt-40 pb-20 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex items-center mb-6">
-        <span class="section-num">01</span>
-        <div class="h-[1px] w-12 bg-gray-200"></div>
-        <span class="ml-4 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">იდენტობა რომელიც საიტად იქცევა</span>
+  <section id="home" class="pt-60 pb-40 px-8">
+    <div class="max-w-[1400px] mx-auto">
+      <h1 class="text-7xl lg:text-[100px] font-medium tracking-tighter leading-[0.9] mb-12 italic">
+        Identity <br> <span class="not-italic text-gray-300">— into Web.</span>
+      </h1>
+      <div class="flex flex-col md:flex-row justify-between items-end">
+        <p class="text-2xl text-gray-400 max-w-xl font-light">
+          ჩვენ ვქმნით ციფრულ გარემოს, სადაც თქვენი ბრენდის იდენტობა საუბრობს სიმარტივით და დახვეწილობით.
+        </p>
+        <div class="mt-8 md:mt-0 flex space-x-4">
+            <div class="text-right">
+                <span class="block text-4xl font-light">150+</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Projects</span>
+            </div>
+            <div class="w-[1px] h-12 bg-gray-200"></div>
+            <div class="text-right">
+                <span class="block text-4xl font-light">05+</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Years</span>
+            </div>
+        </div>
       </div>
-      
-      <div class="grid lg:grid-cols-2 gap-12 items-end">
+    </div>
+  </section>
+
+  <section id="services" class="py-32 bg-matte-gray px-8">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-12 block">01 / სერვისები</span>
+      <div class="grid lg:grid-cols-2 gap-20">
         <div>
-          <h1 class="text-5xl lg:text-7xl font-bold text-matte-navy leading-[1.1] mb-8">
-            ციფრული <br>ტრანსფორმაცია <br><span class="text-gray-300">იწყება აქ.</span>
-          </h1>
-          <p class="text-xl text-gray-500 max-w-lg mb-10 leading-relaxed">
-            ვქმნით მინიმალისტურ და ფუნქციურ ციფრულ პროდუქტებს, რომლებიც თქვენს ბიზნესს ახალ სიმაღლეზე აიყვანს.
-          </p>
-          <div class="flex space-x-4">
-            <button class="btn-matte px-10 py-4 font-bold">პროექტის დაწყება</button>
-            <button class="px-10 py-4 border border-gray-200 rounded-xl font-bold hover:bg-gray-50 transition">პორტფოლიო</button>
-          </div>
+            <h2 class="text-5xl font-light tracking-tight mb-8">რას ვაკეთებთ <br>თქვენთვის</h2>
+            <p class="text-gray-500 mb-12">სრული ციფრული ციკლი იდეიდან რეალიზაციამდე.</p>
+            <a href="#contact" class="btn-outline px-10 py-4 inline-block text-xs font-bold uppercase">ყველა სერვისი</a>
         </div>
-        
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-matte-grey p-8 rounded-[32px]">
-            <div class="text-4xl font-bold text-matte-navy mb-2">150+</div>
-            <div class="text-sm font-medium text-gray-400 uppercase">დასრულებული პროექტი</div>
-          </div>
-          <div class="bg-matte-navy p-8 rounded-[32px] text-white">
-            <div class="text-4xl font-bold mb-2">98%</div>
-            <div class="text-sm font-medium opacity-60 uppercase">კმაყოფილი კლიენტი</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="py-24 bg-white px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-16">
-        <div class="flex items-center mb-4">
-          <span class="section-num">02</span>
-          <span class="text-xs font-bold uppercase tracking-widest text-gray-400">რას ვაკეთებთ</span>
-        </div>
-        <h2 class="text-4xl font-bold text-matte-navy">სერვისები</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="soft-card p-10 group">
-          <div class="w-16 h-16 bg-matte-grey rounded-2xl flex items-center justify-center mb-8 group-hover:bg-matte-navy transition-colors duration-500">
-            <svg class="w-8 h-8 text-matte-navy group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-matte-navy mb-4">UX/UI დიზაინი</h3>
-          <p class="text-gray-500 leading-relaxed mb-8">
-            თანამედროვე სტანდარტების შესაბამისი დიზაინი, რომელიც მორგებულია მომხმარებლის გამოცდილებაზე.
-          </p>
-          <a href="#" class="flex items-center font-bold text-matte-navy group-hover:translate-x-2 transition-transform">
-            გაიგე მეტი <span class="ml-2">→</span>
-          </a>
-        </div>
-
-        <div class="soft-card p-10 group border-matte-navy">
-          <div class="w-16 h-16 bg-matte-grey rounded-2xl flex items-center justify-center mb-8 group-hover:bg-matte-navy transition-colors duration-500">
-            <svg class="w-8 h-8 text-matte-navy group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-matte-navy mb-4">E-commerce</h3>
-          <p class="text-gray-500 leading-relaxed mb-8">
-            სრულფასოვანი ონლაინ მაღაზიები, რომლებიც ორიენტირებულია გაყიდვების ზრდასა და სიმარტივეზე.
-          </p>
-          <a href="#" class="flex items-center font-bold text-matte-navy group-hover:translate-x-2 transition-transform">
-            გაიგე მეტი <span class="ml-2">→</span>
-          </a>
-        </div>
-
-        <div class="soft-card p-10 group">
-          <div class="w-16 h-16 bg-matte-grey rounded-2xl flex items-center justify-center mb-8 group-hover:bg-matte-navy transition-colors duration-500">
-            <svg class="w-8 h-8 text-matte-navy group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-matte-navy mb-4">ბრენდინგი</h3>
-          <p class="text-gray-500 leading-relaxed mb-8">
-            თქვენი ბრენდის ვიზუალური ნარატივი, რომელიც ზუსტად გადმოსცემს კომპანიის ღირებულებებს.
-          </p>
-          <a href="#" class="flex items-center font-bold text-matte-navy group-hover:translate-x-2 transition-transform">
-            გაიგე მეტი <span class="ml-2">→</span>
-          </a>
+        <div class="space-y-2">
+            <div class="card-minimal p-8 flex justify-between items-center group">
+                <span class="text-2xl font-light">UX/UI დიზაინი</span>
+                <span class="text-gray-300 group-hover:text-black transition">→</span>
+            </div>
+            <div class="card-minimal p-8 flex justify-between items-center group">
+                <span class="text-2xl font-light">E-commerce სისტემები</span>
+                <span class="text-gray-300 group-hover:text-black transition">→</span>
+            </div>
+            <div class="card-minimal p-8 flex justify-between items-center group">
+                <span class="text-2xl font-light">კორპორატიული საიტები</span>
+                <span class="text-gray-300 group-hover:text-black transition">→</span>
+            </div>
+            <div class="card-minimal p-8 flex justify-between items-center group">
+                <span class="text-2xl font-light">ბრენდინგი & სტრატეგია</span>
+                <span class="text-gray-300 group-hover:text-black transition">→</span>
+            </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-matte-grey py-12 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-      <div class="text-sm font-medium text-gray-400 mb-4 md:mb-0">
-        © 2026 IDENTISITE. ყველა უფლება დაცულია.
+  <section id="process" class="py-32 px-8">
+    <div class="max-w-[1400px] mx-auto">
+      <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-20 block">02 / პროცესი</span>
+      <div class="grid md:grid-cols-4 gap-12">
+        <div class="process-step">
+            <span class="text-[10px] font-bold text-gray-300 block mb-4 uppercase">Step 01</span>
+            <h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">კვლევა</h3>
+            <p class="text-sm text-gray-500 font-light">ბიზნესის ანალიზი და მიზნების განსაზღვრა.</p>
+        </div>
+        <div class="process-step">
+            <span class="text-[10px] font-bold text-gray-300 block mb-4 uppercase">Step 02</span>
+            <h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">დიზაინი</h3>
+            <p class="text-sm text-gray-500 font-light">ვიზუალური იდენტობის და სტრუქტურის შექმნა.</p>
+        </div>
+        <div class="process-step">
+            <span class="text-[10px] font-bold text-gray-300 block mb-4 uppercase">Step 03</span>
+            <h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">დეველოპმენტი</h3>
+            <p class="text-sm text-gray-500 font-light">იდეის ქცევა ფუნქციურ ციფრულ პროდუქტად.</p>
+        </div>
+        <div class="process-step">
+            <span class="text-[10px] font-bold text-gray-300 block mb-4 uppercase">Step 04</span>
+            <h3 class="text-xl font-bold mb-4 uppercase tracking-tighter">გაშვება</h3>
+            <p class="text-sm text-gray-500 font-light">ტესტირება და პროექტის საბოლოო ლაივ რეჟიმი.</p>
+        </div>
       </div>
-      <div class="flex space-x-8">
-        <a href="#" class="text-xs font-bold uppercase tracking-tighter hover:text-matte-navy">Facebook</a>
-        <a href="#" class="text-xs font-bold uppercase tracking-tighter hover:text-matte-navy">Instagram</a>
-        <a href="#" class="text-xs font-bold uppercase tracking-tighter hover:text-matte-navy">LinkedIn</a>
+    </div>
+  </section>
+
+  <section id="contact" class="py-40 bg-matte-dark text-white px-8">
+    <div class="max-w-[1400px] mx-auto text-center">
+      <h2 class="text-5xl lg:text-8xl font-light mb-12 tracking-tighter">გაქვთ იდეა? <br> <span class="text-gray-500 italic">მოდით, დავიწყოთ.</span></h2>
+      <a href="mailto:hello@identisite.ge" class="text-2xl lg:text-4xl border-b border-gray-700 pb-2 hover:border-white transition">hello@identisite.ge</a>
+      
+      <div class="grid md:grid-cols-3 gap-8 mt-32 text-left opacity-40 text-[10px] font-bold uppercase tracking-[0.2em]">
+        <div>თბილისი, საქართველო</div>
+        <div class="md:text-center">+995 555 00 00 00</div>
+        <div class="md:text-right">Social: IG, FB, LI</div>
       </div>
+    </div>
+  </section>
+
+  <footer class="py-12 border-t border-matte px-8">
+    <div class="max-w-[1400px] mx-auto flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-gray-400">
+      <p>© 2026 IDENTISITE.</p>
+      <p>CREATED WITH FOCUS ON IDENTITY.</p>
     </div>
   </footer>
 
