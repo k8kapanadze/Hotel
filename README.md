@@ -3,227 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IDENTISITE | Identity Engineering</title>
+  <title>IDENTISITE | Modern Identity</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+Georgian:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { font-family: 'Noto Sans Georgian', sans-serif; transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; }
+    * { font-family: 'Noto Sans Georgian', 'Inter', sans-serif; transition: background-color 0.4s ease, color 0.4s ease; }
     html { scroll-behavior: smooth; }
-
-    /* Scroll Progress Bar */
-    #progress-bar {
-      position: fixed; top: 0; left: 0; height: 3px; background: #001a33; z-index: 100; width: 0%;
+    
+    /* Grains Overlay */
+    .noise::before {
+      content: "";
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://grainy-gradients.vercel.app/noise.svg');
+      opacity: 0.03; pointer-events: none; z-index: 9999;
     }
 
-    /* Dark Mode Styling */
+    /* Grains Overlap with Glow */
+    .glow-blob {
+      position: absolute; filter: blur(120px); z-index: 0; opacity: 0.2;
+    }
+
+    /* Glass Cards */
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Glow Elements */
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      color: #000; font-weight: 700; border-radius: 100px;
+      transition: all 0.3s ease;
+    }
+    .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 30px #38bdf850; }
+
+    /* Theme Switcher Toggle */
+    .theme-switch {
+      width: 50px; height: 26px; background: rgba(255,255,255,0.1);
+      border-radius: 50px; position: relative; cursor: pointer;
+    }
+    .theme-switch .dot {
+      width: 20px; height: 20px; background: white;
+      border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: 0.3s;
+    }
+
+    /* Dark Mode Utility */
     .dark-mode { background-color: #050505 !important; color: #f1f5f9 !important; }
-    .dark-mode #progress-bar { background: #38bdf8; }
-    .dark-mode .accordion-item { border-color: rgba(255,255,255,0.05) !important; }
-    .dark-mode .bg-soft { background-color: #0d0d0d !important; }
-    .dark-mode .text-matte { color: #38bdf8 !important; }
-    .dark-mode .calc-card { background: #111 !important; border-color: #222 !important; }
-
-    /* Accordion Logic */
-    .accordion-content {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .accordion-item.active .accordion-content { max-height: 1000px; padding-bottom: 4rem; }
-    .accordion-item.active .plus-icon { transform: rotate(45deg); color: #001a33; }
-    .dark-mode .accordion-item.active .plus-icon { color: #38bdf8; }
+    .dark-mode .noise::before { opacity: 0.05; }
+    .dark-mode .theme-switch { background: #38bdf8; }
+    .dark-mode .theme-switch .dot { left: 27px; background: #000; }
+    .dark-mode .glass-card { background: rgba(13, 13, 13, 0.8); }
 
     /* Marquee Tech Stack */
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .tech-marquee { display: flex; width: 200%; animation: scroll 30s linear infinite; }
     
-    /* Interactive Button */
-    .btn-main {
-      position: relative; overflow: hidden;
-      border: 1px solid #001a33; padding: 14px 32px; border-radius: 100px;
-      font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .btn-main:hover { background: #001a33; color: white; }
-    .dark-mode .btn-main { border-color: #38bdf8; color: #38bdf8; }
-    .dark-mode .btn-main:hover { background: #38bdf8; color: #000; }
+    /* Calculator Interaction */
+    .calc-card:hover { border-color: #38bdf8; transform: translateY(-5px); }
   </style>
 </head>
-<body class="bg-white text-[#111] antialiased">
+<body class="bg-[#0f172a] text-slate-200 antialiased noise">
 
-  <div id="progress-bar"></div>
-
-  <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-50 px-8 py-5">
-    <div class="max-w-[1500px] mx-auto flex justify-between items-center">
-      <a href="#" class="text-2xl font-black tracking-tighter uppercase text-matte">Identisite</a>
+  <nav class="fixed top-0 w-full z-50 dark-glass border-b border-white/5 px-8 py-5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center h-20">
+      <a href="#" class="flex items-center space-x-3">
+        <div class="w-10 h-10 btn-main flex items-center justify-center font-bold text-black">I</div>
+        <span class="text-xl font-bold tracking-tighter text-white">IDENTISITE</span>
+      </a>
       
       <div class="flex items-center space-x-8">
-        <button onclick="toggleDarkMode()" class="flex items-center space-x-2 group">
-          <div class="w-10 h-5 bg-gray-200 dark:bg-gray-800 rounded-full relative p-1 transition-colors" id="toggle-bg">
-            <div class="w-3 h-3 bg-white rounded-full absolute left-1 top-1 transition-transform" id="toggle-dot"></div>
-          </div>
-          <span class="text-[10px] font-bold uppercase tracking-widest opacity-50 group-hover:opacity-100">Night Mode</span>
-        </button>
+        <div class="theme-switch" onclick="toggleDarkMode()">
+          <div class="dot"></div>
+        </div>
+        <span class="text-xs font-bold opacity-30">GE / EN</span>
       </div>
     </div>
   </nav>
 
-  <section class="min-h-screen flex items-center pt-20 px-8">
-    <div class="max-w-[1500px] mx-auto grid lg:grid-cols-2 gap-16 w-full">
-      <div class="space-y-8">
-        <div class="flex items-center space-x-4">
-            <div class="h-[1px] w-12 bg-gray-300"></div>
-            <span class="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-400">Digital Architecture Studio</span>
-        </div>
-        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none">
-          შენი ბიზნესის <br> იდენტობა <span class="opacity-20 italic font-light">იწყება აქ</span>
+  <section id="home" class="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
+    <div class="glow-blob w-[500px] h-[500px] bg-sky-600 top-20 -left-24"></div>
+    <div class="glow-blob w-[400px] h-[400px] bg-indigo-600 bottom-0 -right-24"></div>
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center z-10 relative">
+      <div>
+        <div class="inline-block px-4 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold mb-6">PREMIUM WEB SYSTEMS</div>
+        <h1 class="text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-8">
+          შენი ბიზნესის <br>
+          <span class="gradient-text">იდენტობა</span> იწყება აქ
         </h1>
-        <p class="text-xl text-gray-400 max-w-xl leading-relaxed">
-          წაშალეთ ზღვარი იდეასა და რეალობას შორის. ჩვენ ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს, გამორჩეულს და შედეგზე ორიენტირებულს ხდის.
+        <p class="text-lg text-slate-400 mb-10 max-w-lg leading-relaxed">
+          წაშალეთ ზღვარი იდეასა და რეალობას შორის. ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს და შედეგზე ორიენტირებულს ხდის.
         </p>
-        <div class="flex items-center space-x-6">
-          <a href="#contact" class="btn-main">დავიწყოთ პროექტი</a>
-          <a href="#portfolio" class="text-xs font-bold uppercase tracking-widest border-b border-black dark:border-white pb-1">შექმნილი პროექტები</a>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="btn-main px-8 py-4 font-bold text-black text-sm uppercase tracking-widest">დავიწყოთ პროექტი</a>
+          <a href="#portfolio" class="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 font-bold text-sm text-white transition">შექმნილი პროექტები</a>
         </div>
+      </div>
+      
+      <div class="relative h-[450px] hidden lg:block">
+         <div class="absolute top-10 left-10 dark-glass p-8 rounded-2xl w-72 shadow-2xl">
+            <div class="text-[120px] font-bold text-sky-400">98%</div>
+            <div class="text-slate-400 text-xs uppercase tracking-widest">კმაყოფილი კლიენტი</div>
+         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-24 px-8 bg-gray-50 bg-soft border-y border-gray-100">
-    <div class="max-w-[1500px] mx-auto">
-      <div class="mb-12">
-        <h3 class="text-xs font-black uppercase tracking-[0.4em] text-matte mb-4">01 / Identify Your Needs</h3>
-        <h2 class="text-4xl font-bold tracking-tighter">გააჟღერე იდეა</h2>
+  <section id="services" class="py-24 bg-[#0b1120] px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white mb-4">გააჟღერე იდეა</h2>
+        <div class="w-12 h-1 bg-sky-500 mx-auto rounded-full"></div>
       </div>
-      
-      <div class="grid md:grid-cols-3 gap-6">
-        <div onclick="selectService(this, 'UI/UX')" class="calc-card p-10 bg-white border border-gray-200 rounded-3xl cursor-pointer hover:border-matte transition group">
-            <h4 class="text-xl font-bold mb-2">UI/UX დიზაინი</h4>
-            <p class="text-sm text-gray-400">ვიზუალური იდენტობის შექმნა</p>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div onclick="selectService(this, 'UX/UI')" class="glass-card calc-card p-10 rounded-3xl cursor-pointer transition flex flex-col items-center">
+          <div class="w-16 h-16 bg-sky-500 rounded-2xl mb-8 flex items-center justify-center font-bold text-black text-2xl">01</div>
+          <h3 class="text-xl font-bold text-white mb-2">UX/UI</h3>
+          <p class="text-slate-400 text-sm opacity-50">ინტერფეისის დიზაინი</p>
         </div>
-        <div onclick="selectService(this, 'Web')" class="calc-card p-10 bg-white border border-gray-200 rounded-3xl cursor-pointer hover:border-matte transition">
-            <h4 class="text-xl font-bold mb-2">Web Development</h4>
-            <p class="text-sm text-gray-400">მაღალტექნოლოგიური კოდირება</p>
+        <div onclick="selectService(this, 'Web')" class="glass-card calc-card p-10 rounded-3xl cursor-pointer transition flex flex-col items-center">
+            <div class="w-16 h-16 bg-indigo-500 rounded-2xl mb-8 flex items-center justify-center font-bold text-black text-2xl">02</div>
+            <h3 class="text-xl font-bold text-white mb-2">Web Dev</h3>
+            <p class="text-slate-400 text-sm opacity-50">საიტების დამზადება</p>
         </div>
-        <div onclick="selectService(this, 'Branding')" class="calc-card p-10 bg-white border border-gray-200 rounded-3xl cursor-pointer hover:border-matte transition">
-            <h4 class="text-xl font-bold mb-2">Branding</h4>
-            <p class="text-sm text-gray-400">ბრენდის სრული სტრატეგია</p>
+        <div onclick="selectService(this, 'Branding')" class="glass-card calc-card p-10 rounded-3xl cursor-pointer transition flex flex-col items-center">
+            <div class="w-16 h-16 bg-sky-500 rounded-2xl mb-8 flex items-center justify-center font-bold text-black text-2xl">03</div>
+            <h3 class="text-xl font-bold text-white mb-2">Branding</h3>
+            <p class="text-slate-400 text-sm opacity-50">ბრენდის სტრატეგია</p>
         </div>
       </div>
-      
-      <div class="mt-12 flex items-center justify-between p-8 border border-dashed border-gray-200 rounded-3xl">
-        <p class="text-gray-400 font-medium">შერჩეული: <span id="selected-service" class="text-matte font-bold">---</span></p>
-        <a href="#contact" class="text-xs font-black uppercase border-b-2 border-matte">მიიღე შეთავაზება →</a>
+
+      <div class="max-w-3xl mx-auto p-10 glass-card rounded-3xl text-center">
+          <p class="text-slate-400 mb-2">შერჩეული: <span id="selected-service" class="gradient-text font-bold">---</span></p>
+          <a href="#contact" class="btn-main px-8 py-3 inline-block font-bold">მიიღე შეთავაზება</a>
       </div>
     </div>
   </section>
 
-  <section id="portfolio" class="py-10 px-8">
-    <div class="max-w-[1500px] mx-auto">
-      
-      <div class="accordion-item" onclick="toggleAccordion(this)">
-        <div class="py-12 flex justify-between items-center cursor-pointer border-t border-gray-100 group">
-          <div class="flex items-center space-x-12">
-            <span class="text-[10px] font-black opacity-20 group-hover:opacity-100 transition">02</span>
-            <h2 class="text-3xl md:text-5xl font-bold tracking-tighter uppercase">ჩვენ შესახებ</h2>
-          </div>
-          <div class="plus-icon text-4xl font-light transition-transform">+</div>
-        </div>
-        <div class="accordion-content">
-          <div class="grid lg:grid-cols-2 gap-16">
-            <div class="space-y-6">
-                <p class="text-2xl leading-relaxed">ჩვენი გუნდი აერთიანებს დიზაინერებსა და დეველოპერებს, რომელთა მიზანია ციფრული სტანდარტების შეცვლა.</p>
-                <div class="flex space-x-12 pt-4">
-                    <div><h5 class="text-3xl font-black">150+</h5><p class="text-[10px] text-gray-400 uppercase tracking-widest">პროექტი</p></div>
-                    <div><h5 class="text-3xl font-black">20+</h5><p class="text-[10px] text-gray-400 uppercase tracking-widest">პარტნიორი</p></div>
-                </div>
-            </div>
-          </div>
-        </div>
+  <section id="portfolio" class="py-24 relative bg-[#0f172a] px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white">პორტფოლიო</h2>
       </div>
 
-      <div id="contact" class="accordion-item" onclick="toggleAccordion(this)">
-        <div class="py-12 flex justify-between items-center cursor-pointer border-t border-gray-100 group">
-          <div class="flex items-center space-x-12">
-            <span class="text-[10px] font-black opacity-20 group-hover:opacity-100 transition">03</span>
-            <h2 class="text-3xl md:text-5xl font-bold tracking-tighter uppercase">კონტაქტი</h2>
-          </div>
-          <div class="plus-icon text-4xl font-light transition-transform">+</div>
-        </div>
-        <div class="accordion-content">
-          <div class="grid lg:grid-cols-2 gap-16">
-            <div class="space-y-8">
-                <h4 class="text-4xl font-bold">მოგვწერეთ. <br> ერთად დავიწყოთ.</h4>
-                <div class="text-xl opacity-50">hello@identisite.ge</div>
-            </div>
-            <form class="space-y-4">
-                <input type="text" placeholder="სახელი" class="w-full p-5 bg-gray-50 bg-soft rounded-2xl border-none outline-none focus:ring-1 ring-gray-200">
-                <textarea placeholder="თქვენი იდეა" rows="4" class="w-full p-5 bg-gray-50 bg-soft rounded-2xl border-none outline-none focus:ring-1 ring-gray-200"></textarea>
-                <button class="btn-main w-full">გაგზავნა</button>
-            </form>
-          </div>
-        </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="aspect-video glass-card rounded-2xl flex items-center justify-center text-slate-500">Work 01</div>
+        <div class="aspect-video glass-card rounded-2xl flex items-center justify-center text-slate-500">Work 02</div>
+        <div class="aspect-video glass-card rounded-2xl flex items-center justify-center text-slate-500">Work 03</div>
+        <div class="aspect-video glass-card rounded-2xl flex items-center justify-center text-slate-500">Work 04</div>
       </div>
-
     </div>
   </section>
 
-  <div class="overflow-hidden border-y border-gray-100 py-10 opacity-30 grayscale hover:grayscale-0 transition-all">
+  <div class="overflow-hidden border-y border-white/5 py-10 opacity-30 grayscale hover:grayscale-0 transition-all bg-[#0b1120]">
     <div class="tech-marquee space-x-20">
-      <span class="text-3xl font-black uppercase tracking-tighter">React</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Tailwind</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Node.js</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Figma</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Python</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Next.js</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">React</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Tailwind</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Node.js</span>
-      <span class="text-3xl font-black uppercase tracking-tighter">Figma</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">React</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Tailwind</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Node.js</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Figma</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Python</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Next.js</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">React</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Tailwind</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Node.js</span>
+      <span class="text-3xl font-black uppercase tracking-tighter text-white">Figma</span>
     </div>
   </div>
 
-  <footer class="py-12 px-8 text-center md:text-left">
-    <div class="max-w-[1500px] mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">
-      <p>© 2026 IDENTISITE / Identity into Web</p>
-      <div class="flex space-x-8 mt-4 md:mt-0">
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
+  <section id="contact" class="py-24 px-6 relative bg-[#0b1120]">
+    <div class="max-w-4xl mx-auto glass-card p-12 rounded-3xl relative">
+      <h2 class="text-4xl font-bold text-center text-white mb-12">დავიწყოთ პროექტი</h2>
+      <form class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+            <input type="text" placeholder="თქვენი სახელი" class="w-full p-5 bg-white/5 rounded-xl border border-white/10 outline-none text-white focus:border-sky-500">
+            <input type="email" placeholder="ელ-ფოსტა" class="w-full p-5 bg-white/5 rounded-xl border border-white/10 outline-none text-white focus:border-sky-500">
+        </div>
+        <textarea placeholder="თქვენი შეტყობინება" rows="5" class="w-full p-5 bg-white/5 rounded-xl border border-white/10 outline-none text-white focus:border-sky-500"></textarea>
+        <button class="w-full btn-main p-5 rounded-xl text-lg hover:shadow-2xl">გაგზავნა</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="py-12 border-t border-white/5 bg-[#0f172a]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-60 text-sm">
+      <p>© 2026 IDENTISITE. ყველა უფლება დაცულია.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0 font-bold text-white">
+        <a href="#" class="hover:text-sky-400 transition">Facebook</a>
+        <a href="#" class="hover:text-sky-400 transition">Instagram</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Scroll Progress
-    window.onscroll = function() {
-      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let scrolled = (winScroll / height) * 100;
-      document.getElementById("progress-bar").style.width = scrolled + "%";
-    };
-
-    // Dark Mode
+    // Dark Mode Toggle
     function toggleDarkMode() {
-      const body = document.body;
-      const dot = document.getElementById('toggle-dot');
-      body.classList.toggle('dark-mode');
-      
-      if(body.classList.contains('dark-mode')) {
-        dot.style.transform = "translateX(20px)";
-      } else {
-        dot.style.transform = "translateX(0px)";
-      }
+      document.body.classList.toggle('dark-mode');
     }
 
-    // Accordion
-    function toggleAccordion(element) {
-      const isActive = element.classList.contains('active');
-      document.querySelectorAll('.accordion-item').forEach(item => item.classList.remove('active'));
-      if(!isActive) element.classList.add('active');
-    }
-
-    // Calculator Logic
+    // Calculator Select
     function selectService(el, name) {
-      document.querySelectorAll('.calc-card').forEach(c => c.style.borderColor = '');
-      el.style.borderColor = '#001a33';
       document.getElementById('selected-service').innerText = name;
     }
   </script>
