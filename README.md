@@ -3,255 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identisite | Premium Web Architecture</title>
+    <title>Identisite | Premium Web Studio</title>
     <style>
-        :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
-            --gray: #64748b;
-            --line-color: rgba(0, 0, 0, 0.05); /* ბადის ხაზების ფერი */
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; } /* კურსორს ვმალავთ სტანდარტულს */
-
+        /* ვიყენებთ სტანდარტულ, სუფთა Sans-Serif ფონტს */
         body {
-            background-color: #ffffff;
-            font-family: 'Inter', -apple-system, sans-serif;
-            color: var(--dark);
-            overflow-x: hidden;
-            /* Blueprint Grid Lines */
-            background-image: 
-                linear-gradient(var(--line-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
-            background-size: 100px 100px; /* ბადის ზომა */
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff; /* სუფთა თეთრი ფონი */
+            color: #1d1d1f;
+            line-height: 1.5;
         }
 
-        /* --- CUSTOM CURSOR --- */
-        #cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.1s ease;
-        }
-
-        /* --- HERO SECTION (REFINED LEFT SIDE) --- */
-        .hero {
+        /* --- HERO SECTION --- */
+        .hero-wrapper {
             display: flex;
-            min-height: 100vh;
             align-items: center;
-            padding: 0 8%;
-            border-bottom: 1px solid var(--line-color);
+            justify-content: space-between;
+            min-height: 90vh;
+            padding: 0 7%;
+            gap: 50px;
         }
 
         .hero-left {
-            flex: 1.2;
-            padding-right: 50px;
-        }
-
-        .hero-tag {
-            font-size: 11px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 25px;
-            display: block;
+            flex: 1;
+            max-width: 650px;
         }
 
         .hero-left h1 {
-            font-size: clamp(45px, 5.5vw, 80px);
-            line-height: 1;
-            font-weight: 400; /* თხელი ბაზა */
-            letter-spacing: -2px;
-            margin-bottom: 35px;
+            font-size: clamp(42px, 5vw, 72px);
+            font-weight: 800; /* ძალიან სქელი და მკაფიო */
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -1.5px;
         }
 
-        .hero-left h1 b {
-            font-weight: 800; /* სქელი აქცენტი */
-            display: block;
+        .hero-left h1 span {
+            color: #2563eb; /* ლურჯი აქცენტი იდენტობაზე */
         }
 
         .hero-description {
-            font-size: 16px;
-            line-height: 2;
-            letter-spacing: 2.5px; /* გაშლილი ტექსტი */
-            color: var(--gray);
-            text-transform: uppercase;
+            font-size: 19px;
+            color: #515154;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 400;
             max-width: 550px;
-            margin-bottom: 50px;
-            border-left: 2px solid var(--primary);
-            padding-left: 25px;
+            /* გაშლილი სტილი, ოღონდ ზედმეტობის გარეშე */
+            letter-spacing: 0.5px;
         }
 
-        .btn-group {
+        /* ღილაკები - სუფთა და თხელი */
+        .cta-group {
             display: flex;
-            gap: 40px;
+            gap: 20px;
         }
 
-        .btn-link {
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 13px;
+        .btn {
+            padding: 16px 35px;
+            border-radius: 12px;
+            font-size: 15px;
             font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--dark);
+            text-decoration: none;
             transition: 0.3s;
         }
 
-        .btn-link:hover { color: var(--primary); border-color: var(--primary); padding-left: 10px; }
-
-        /* --- MARQUEE (TECH STACK) --- */
-        .marquee {
-            padding: 40px 0;
-            background: #fff;
-            border-bottom: 1px solid var(--line-color);
-            overflow: hidden;
-            display: flex;
+        .btn-dark {
+            background: #1d1d1f;
+            color: #ffffff;
         }
 
-        .marquee-content {
-            display: flex;
-            animation: scroll 20s linear infinite;
-            white-space: nowrap;
+        .btn-outline {
+            border: 1px solid #d2d2d7;
+            color: #1d1d1f;
         }
 
-        .marquee-content span {
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 5px;
-            margin: 0 60px;
-            text-transform: uppercase;
-            color: rgba(0,0,0,0.2);
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        /* --- STACKING CARDS (სერვისები) --- */
+        .services-section {
+            padding: 100px 7%;
+            background: #fbfbfd; /* ოდნავ განსხვავებული ფონი სერვისებისთვის */
         }
 
-        /* --- STACKING CARDS (SERVICES) --- */
-        .services-container {
-            padding: 100px 8%;
+        .stack-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        .stacking-card {
+        .service-card {
             position: sticky;
-            top: 100px;
-            background: white;
-            border: 1px solid var(--line-color);
-            border-radius: 32px;
+            top: 100px; /* სად გაჩერდეს სქროლვისას */
+            background: #ffffff;
+            border-radius: 35px;
             padding: 60px;
-            height: 450px;
-            margin-bottom: 100px;
-            box-shadow: 0 -20px 40px rgba(0,0,0,0.02);
+            height: 400px;
+            margin-bottom: 50px; /* დაცილება ბარათებს შორის */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            transition: transform 0.5s;
         }
 
-        .card-content { flex: 1; }
-        .card-content h3 { font-size: 32px; margin-bottom: 20px; }
-        .card-image { flex: 1; text-align: right; font-size: 120px; opacity: 0.1; }
+        .service-info { flex: 1; }
+        .service-info h2 { font-size: 32px; margin-bottom: 20px; color: #1d1d1f; }
+        .service-info p { font-size: 17px; color: #86868b; max-width: 400px; }
 
-        /* --- მობილური --- */
-        @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
-            .hero-description { border-left: none; padding-left: 0; margin: 0 auto 40px; }
-            .btn-group { justify-content: center; }
-            .stacking-card { height: auto; padding: 40px; }
+        .service-icon {
+            font-size: 100px;
+            opacity: 0.15;
+            filter: grayscale(100%);
+        }
+
+        /* მობილური ვერსია */
+        @media (max-width: 900px) {
+            .hero-wrapper { flex-direction: column; text-align: center; padding-top: 80px; }
+            .hero-left { padding-right: 0; }
+            .cta-group { justify-content: center; }
+            .service-card { flex-direction: column; height: auto; text-align: center; padding: 40px 20px; }
+            .service-icon { margin-top: 30px; font-size: 60px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="cursor"></div>
-
-    <section class="hero">
+    <section class="hero-wrapper">
         <div class="hero-left">
-            <span class="hero-tag">Digital Studio</span>
-            <h1>შენი ბიზნესის <br> <b>იდენტობა</b> იწყება აქ</h1>
+            <h1>შენი ბიზნესის <br> <span>იდენტობა</span> იწყება აქ</h1>
             <p class="hero-description">
-                წაშალეთ ზღვარი იდეასა და რეალობას შორის. ვქმნით ციფრულ გამოცდილებას, რომელიც ბრენდს ხილვადს ხდის.
+                წაშალეთ ზღვარი იდეასა და რეალობას შორის. ჩვენ ვქმნით ციფრულ გამოცდილებას, რომელიც თქვენს ბრენდს ხილვადს, გამორჩეულს და შედეგზე ორიენტირებულს ხდის.
             </p>
-            <div class="btn-group">
-                <a href="#" class="btn-link">დავიწყოთ პროექტი</a>
-                <a href="#" class="btn-link" style="opacity: 0.5;">პორტფოლიო</a>
+            <div class="cta-group">
+                <a href="#" class="btn btn-dark">დავიწყოთ პროექტი</a>
+                <a href="#" class="btn btn-outline">ნამუშევრები</a>
             </div>
         </div>
-        
-        <div style="flex: 1; text-align: right;">
-            <img src="https://via.placeholder.com/500x500/f3f4f6/000000?text=GRAPHIC+ELEMENT" alt="UI" style="max-width: 100%; border-radius: 40px;">
+
+        <div class="hero-right">
+            <img src="https://via.placeholder.com/500x450/f4f4f7/2563eb?text=Digital+Identity" alt="Design" style="max-width: 100%; border-radius: 30px;">
         </div>
     </section>
 
-    <div class="marquee">
-        <div class="marquee-content">
-            <span>WEB ARCHITECTURE</span>
-            <span>UI/UX DESIGN</span>
-            <span>E-COMMERCE</span>
-            <span>SEO OPTIMIZATION</span>
-            <span>BRANDING</span>
-            <span>WEB ARCHITECTURE</span>
-            <span>UI/UX DESIGN</span>
-            <span>E-COMMERCE</span>
-            <span>SEO OPTIMIZATION</span>
-            <span>BRANDING</span>
-        </div>
-    </div>
-
-    <section class="services-container">
-        <div class="stacking-card">
-            <div class="card-content">
-                <h3>01. კორპორატიული საიტები</h3>
-                <p>პროფესიონალური საიტები, რომლებიც თქვენს ბრენდს სათანადოდ წარმოაჩენს.</p>
+    <section class="services-section">
+        <div class="stack-container">
+            
+            <div class="service-card" style="background: #ffffff;">
+                <div class="service-info">
+                    <h2>კორპორატიული საიტები</h2>
+                    <p>პროფესიონალური ვებსაიტები, რომლებიც თქვენს ბრენდს სათანადოდ წარმოაჩენს და კლიენტებს მოიზიდავს.</p>
+                </div>
+                <div class="service-icon">🌐</div>
             </div>
-            <div class="card-image">🌐</div>
-        </div>
 
-        <div class="stacking-card" style="margin-top: -50px;">
-            <div class="card-content">
-                <h3>02. E-commerce მაღაზიები</h3>
-                <p>სრულფასოვანი ონლაინ მაღაზიები გადახდის სისტემებით.</p>
+            <div class="service-card" style="background: #f9f9fb;">
+                <div class="service-info">
+                    <h2>E-commerce მაღაზიები</h2>
+                    <p>სრულფასოვანი ონლაინ მაღაზიები გადახდის სისტემებით და მარაგის მართვით.</p>
+                </div>
+                <div class="service-icon">🛒</div>
             </div>
-            <div class="card-image">🛒</div>
-        </div>
 
-        <div class="stacking-card" style="margin-top: -50px;">
-            <div class="card-content">
-                <h3>03. UI/UX დიზაინი</h3>
-                <p>ინტუიციური ინტერფეისები საუკეთესო გამოცდილებისთვის.</p>
+            <div class="service-card" style="background: #f1f5ff;">
+                <div class="service-info">
+                    <h2>UI/UX დიზაინი</h2>
+                    <p>მომხმარებელზე ორიენტირებული ინტერფეისების დიზაინი საუკეთესო გამოცდილებისთვის.</p>
+                </div>
+                <div class="service-icon">🎨</div>
             </div>
-            <div class="card-image">🎨</div>
+
         </div>
     </section>
-
-    <script>
-        // Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Hover Effect on buttons
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(3)';
-                cursor.style.background = 'rgba(37, 99, 235, 0.2)';
-            });
-            link.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.background = '#2563eb';
-            });
-        });
-    </script>
 
 </body>
 </html>
